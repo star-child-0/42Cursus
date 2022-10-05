@@ -10,53 +10,27 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	final_len(int size, char **strs, char *sep)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	len = 0;
-	while (i < size)
-	{
-		len += ft_strlen(strs[i]);
-		i++;
-	}
-	return (len += (ft_strlen(sep) * size) - 1);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	k;
-
-	i = 0;
-	k = 0;
-	while (dest[i])
-		i++;
-	while (src[k])
-	{
-		dest[i] = src[k];
-		k++;
-		i++;
-	}
-	dest[i] = 0;
-	return (dest);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
+char *ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
+	int		k;
+	int		len;
 	char	*str;
 
-	str = malloc(final_len(size, strs, sep) * sizeof(char));
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(len * sizeof(char));
 	i = 0;
-	while (i < size)
+	k = 0;
+	while (s1[i] != '\0')
 	{
-		ft_strcat(str, strs[i]);
-		if (i < size - 1)
-			ft_strcat(str, sep);
+		str[i] = s1[i];
 		i++;
 	}
+	while (s2[k] != '\0')
+	{
+		str[i] = s2[k];
+		k++;
+		i++;
+	}	
 	return (str);
 }
