@@ -13,28 +13,23 @@ int	ft_strlen(const char *str)
 #include <stdio.h>
 char *ft_strtrim(char const *s1, char const *set)
 {
-    int     i;
-    int     k;
     char    *str;
 
-    i = 0;
     str = malloc(ft_strlen(s1));
-    while (s1[i] != '\0')
-    {
-        k = 0;
-        if (s1[i] == set[k])
-        {
-            while (set[k] != '\0' && s1[i + k] == set[k])
-                k++;
-        }
-        str[i] = s1[i];
-        i++;
-    }
-    
-    return(str);
+
+    return (str);
 }
 
 int main()
 {
-    printf("%s\n", ft_strtrim("Hello \t\tWorld", "\t"));
+    printf("%s\n", ft_strtrim("Hello \tWorld", "\t"));
+
+    // printf("Hello World: "); 
+    // printf("%s\n", ft_strtrim("Hello 12World12", "12"));
+    // printf("Hello 1World1: "); 
+    // printf("%s\n", ft_strtrim("Hello 1World1", "12"));
+    // printf("Hello 1World1: "); 
+    // printf("%s\n", ft_strtrim("Hel12lo 1Wor12ld1", "12"));
+    // printf("Hel21lo 1Wor21ld1: "); 
+    // printf("%s\n", ft_strtrim("Hel21lo 1Wor21ld1", "12"));
 }

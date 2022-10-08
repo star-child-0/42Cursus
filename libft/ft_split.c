@@ -1,12 +1,16 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 char **ft_split(char const *s, char c)
 {
     int     i;
+    int     l;
+    int     j;
     int     w;
     char    **p;
     
     i = 0;
+    j = 0;
     w = 0;
     while (s[i] != '\0')
     {
@@ -18,11 +22,19 @@ char **ft_split(char const *s, char c)
         }
         i++;
     }
-    *p = (char **)malloc(w);
+    printf("%d\n", w + 1);
+    *p = malloc(w + 1);
+    l = i;
+    i = 0;
+    while (i  < l)
+    {
+        if (s[i] == c)
+            j++;
+        i++;
+    }
 }
 
-#include <stdio.h>
 int main()
 {
-    ft_split("Hello  World", ' ');
+    ft_split("Hello World", ' ');
 }
