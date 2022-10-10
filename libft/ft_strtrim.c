@@ -1,25 +1,40 @@
 #include <stdlib.h>
 
-int	ft_strlen(const char *str)
-{
-	int	i;
+// int ft_strlen(const char *str)
+// {
+//     int i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+//     i = 0;
+//     while (str[i] != '\0')
+//         i++;
+//     return (i);
+// }
 
-#include <stdio.h>
 char *ft_strtrim(char const *s1, char const *set)
 {
+    int     i;
+    int     k;
+    int     j;
+    int     l;
     char    *str;
 
-    str = malloc(ft_strlen(s1));
+    i = 0;
+    j = 0;
+    l = ft_strlen(s1);
+    str = malloc(l);
+    while (i < l)
+    {
+        while(set[j] != '\0')
+        {
+            
+        }
+        i++;
+    }
 
     return (str);
 }
 
+#include <stdio.h>
 int main()
 {
     printf("%s\n", ft_strtrim("Hello \tWorld", "\t"));
