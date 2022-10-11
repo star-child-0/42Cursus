@@ -1,15 +1,27 @@
-char *ft_strrchr(const char *s, int c)
-{
-    int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/11 19:20:21 by anvannin          #+#    #+#             */
+/*   Updated: 2022/10/11 19:37:23 by anvannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    while (s[i] != '\0')
-        i++;
-    while (i >= 0)
-    {
-        if (s[i] == c)
-            break;
-        i--;
-    }
-    return ((const char *)s + i);
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			break ;
+		i--;
+	}
+	return ((const char *)s + i);
 }

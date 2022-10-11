@@ -1,23 +1,24 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/11 19:11:59 by anvannin          #+#    #+#             */
+/*   Updated: 2022/10/11 19:32:39 by anvannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < n)
-    {
-        if (str[i] == c)
-            break;
-        i++;
-    }
-}
-
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    printf("%s\n", memchr("Hello World", ' ', 6));
-
-    // printf("%s\n", ft_memchr("Hello World", ' ', 6));
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == c)
+			break ;
+		i++;
+	}
 }

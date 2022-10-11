@@ -1,50 +1,37 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/11 19:20:54 by anvannin          #+#    #+#             */
+/*   Updated: 2022/10/11 19:51:59 by anvannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// int ft_strlen(const char *str)
-// {
-//     int i;
-
-//     i = 0;
-//     while (str[i] != '\0')
-//         i++;
-//     return (i);
-// }
-
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    int     i;
-    int     k;
-    int     j;
-    int     l;
-    char    *str;
+	int		i;
+	int		j;
+	int		l;
+	char	*str;
 
-    i = 0;
-    j = 0;
-    l = ft_strlen(s1);
-    str = malloc(l);
-    while (i < l)
-    {
-        while(set[j] != '\0')
-        {
-            
-        }
-        i++;
-    }
-
-    return (str);
-}
-
-#include <stdio.h>
-int main()
-{
-    printf("%s\n", ft_strtrim("Hello \tWorld", "\t"));
-
-    // printf("Hello World: "); 
-    // printf("%s\n", ft_strtrim("Hello 12World12", "12"));
-    // printf("Hello 1World1: "); 
-    // printf("%s\n", ft_strtrim("Hello 1World1", "12"));
-    // printf("Hello 1World1: "); 
-    // printf("%s\n", ft_strtrim("Hel12lo 1Wor12ld1", "12"));
-    // printf("Hel21lo 1Wor21ld1: "); 
-    // printf("%s\n", ft_strtrim("Hel21lo 1Wor21ld1", "12"));
+	i = 0;
+	j = 0;
+	l = ft_strlen(s1);
+	str = malloc(l);
+	while (i < l)
+	{
+		j = 0;
+		while (set[j] != '\0')
+		{
+			if (str[i] == set[j])
+				ft_memmove(str + i, str + i + 1, (size_t)l);
+			j++;
+		}
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

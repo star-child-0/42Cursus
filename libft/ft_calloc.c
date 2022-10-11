@@ -1,39 +1,25 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/11 19:10:02 by anvannin          #+#    #+#             */
+/*   Updated: 2022/10/11 19:45:14 by anvannin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    size_t  *arr;
-    int     i;
+	size_t	*arr;
+	int		i;
 
-    i = 0;
-    arr = (size_t *)malloc(sizeof(size));
-    while (i < size)
-    {
-        arr[i] = '\0';
-        i++;
-    }
-}
-
-#include <stdio.h>
-int main () {
-   int i, n;
-   int *a;
-
-   printf("Number of elements to be entered:");
-   scanf("%d",&n);
-
-//    a = (int*)calloc(n, sizeof(int));
-   a = (int*)ft_calloc(n, sizeof(int));
-   printf("Enter %d numbers:\n",n);
-   for( i=0 ; i < n ; i++ ) {
-      scanf("%d",&a[i]);
-   }
-
-   printf("The numbers entered are: ");
-   for( i=0 ; i < n ; i++ ) {
-      printf("%d ",a[i]);
-   }
-   free( a );
-   
-   return(0);
+	i = 0;
+	arr = (size_t *)malloc(sizeof(size));
+	while (i < size)
+	{
+		arr[i] = '\0';
+		i++;
+	}
 }
