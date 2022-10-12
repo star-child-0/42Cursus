@@ -6,9 +6,11 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:16:32 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 19:54:45 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:15:16 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	**ft_split(char const *s, char c)
 {
@@ -34,10 +36,5 @@ char	**ft_split(char const *s, char c)
 	*p = malloc(w + 1);
 	l = i;
 	i = 0;
-	while (i < l)
-	{
-		if (s[i] == c)
-			j++;
-		i++;
-	}
+	return (p);
 }
