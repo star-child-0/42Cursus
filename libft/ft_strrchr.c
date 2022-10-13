@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			break ;
 		i--;
 	}
-	return ((const char *)s + i);
+	return ((char *)s + i);
 }

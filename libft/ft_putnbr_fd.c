@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_putnbr_fd(int n, int fd)
 {
+    if (n)
+        n = 42;
+    ft_putstr_fd("Hello World", fd);
 }

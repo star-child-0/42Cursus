@@ -14,14 +14,15 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	*arr;
-	int		i;
+	char		*arr;
+	size_t		i;
 
 	i = 0;
-	arr = (size_t *)malloc(sizeof(size));
+	arr = malloc((int)nmemb);
 	while (i < size)
 	{
 		arr[i] = '\0';
 		i++;
 	}
+	return ((void *)arr);
 }

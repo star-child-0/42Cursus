@@ -14,14 +14,14 @@
 
 int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		if (str2[i] > str1[i])
+		if (((const int *)str2)[i] > ((const int *)str1)[i])
 			return (1);
-		else if (str1[i] > str2[i])
+		else if (((const int *)str1)[i] > ((const int *)str2)[i])
 			return (-1);
 		i++;
 	}
