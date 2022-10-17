@@ -6,7 +6,7 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:00:02 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 20:00:15 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:11:05 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list	*ft_lstnew(void *content)
 {
-    t_list      *new;
+	t_list	*new;
 
-    new->content = content;
-    new->next = NULL;
-    return (new);
+	new = (t_list *)malloc(sizeof(t_list));
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:16:09 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 19:57:57 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:15:37 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while(s[i] != '\0')
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

@@ -6,11 +6,11 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:18:48 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 19:18:50 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:07:26 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 

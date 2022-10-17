@@ -6,7 +6,7 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:15:50 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 19:57:20 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:12:26 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-   ft_putstr_fd(s, fd);
-   write(fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:21:14 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/11 19:48:09 by anvannin         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:09:16 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int		i;
 	char	*sub;
 
-	i = 0;
-	sub = (char *)malloc(len);
-	while (i < start)
-		i++;
-	while ((size_t)i < len)
-	{
-		sub[i] = s[i];
-		i++;
-	}
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		len = 0;
+	sub = (char *)malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, &s[start], len + 1);
 	return (sub);
 }

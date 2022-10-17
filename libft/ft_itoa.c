@@ -12,55 +12,67 @@
 
 #include "libft.h"
 
-int	get_number_size(int n)
+static short	ft_get_numsign(int nbr)
 {
-	int	i;
-
-	i = 0;
-	while (n / 10 > 9)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 2);
+	if (nbr < 0)
+		return (-1);
+	return (1);
 }
 
-char	*ft_strrev(char *str)
+static size_t	ft_get_numlen(int nbr)
 {
-	int		i;
-	int		l;
-	char	c;
+	size_t	len;
 
-	i = 0;
-	l = ft_strlen(str);
-	while (i < l / 2)
+	len = 0;
+	if (nbr <= 0)
+		len++;
+	while (nbr)
 	{
-		c = str[i];
-		str[i] = str[l - i - 1];
-		str[l - i - 1] = c;
-		i++;
+		nbr /= 10;
+		len++;
 	}
-	return (str);
+	return (len);
+}
+
+static void	ft_strrev(char *s)
+{
+	char	*left;
+	char	tmp;
+
+	left = s;
+	while (*s)
+		s++;
+	while (left < --s)
+	{
+		tmp = *left;
+		*left++ = *s;
+		*s = tmp;
+	}
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		n_size;
-	char	*str;
+	char		*str;
+	size_t		len;
+	size_t		pos;
+	short		sign;
 
-	i = 0;
-	n_size = get_number_size(n);
-	str = (char *)malloc(n_size);
-	while (i < n_size)
+	sign = ft_get_numsign(n);
+	len = ft_get_numlen(n);
+	str = ft_calloc((len + 1), sizeof(char));
+	if (!str)
+		return (NULL);
+	pos = 0;
+	while (n)
 	{
-		str[i] = (n % 10) + 48;
+		str[pos++] = sign * (n % 10) + '0';
 		n /= 10;
-		i++;
 	}
-	if (n < 0)
-		str[i] = '-';
-	else
-		str[i] = '+';
-	return (ft_strrev(str));
+	if (!(n || pos))
+		str[pos++] = '0';
+	if (sign < 0)
+		str[pos++] = '-';
+	str[pos] = '\0';
+	ft_strrev(str);
+	return (str);
 }

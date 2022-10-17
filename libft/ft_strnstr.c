@@ -15,21 +15,23 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	size_t	k;
 
 	i = 0;
-	if (!little)
+	if (little[0] == '\0')
 		return ((char *)big);
-	while (i < (size_t)ft_strlen((char *)big) && i < len)
+	while (big[i] != '\0')
 	{
-		j = 0;
-		while(big[i] == little[j] && j < (size_t)ft_strlen((char *)little))
+		k = 0;
+		while (big[i + k] == little[k] && (i + k) < len)
 		{
-			j++;
-			if (little[j] == '\0')
-				return ((char *)big + i);
+			if (big[i + k] == '\0' && little[k] == '\0')
+				return ((char *)&big[i]);
+			k++;
 		}
+		if (little[k] == '\0')
+			return ((char *)big + i);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
