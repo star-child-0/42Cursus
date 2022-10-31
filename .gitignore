@@ -1,7 +1,6 @@
 .vscode
-Correzioni
 warmachine
-
+*/.git
 
 # Prerequisites
 *.d

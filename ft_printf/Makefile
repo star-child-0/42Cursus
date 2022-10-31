@@ -1,5 +1,5 @@
-FILES = 
-FILES_BONUS = 
+FILES = ft_printf.c ft_putchar.c ft_put_pointer.c ft_nbrlen.c \
+ft_putnbr.c ft_putstr.c ft_putnbr_hex.c ft_putunsign_nbr.c
 OBJECTS=$(FILES:.c=.o)
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror 
@@ -9,7 +9,7 @@ all: ${NAME}
 
 ${NAME}:
 	${CC} ${CFLAGS} -c ${FILES}
-	ar -rsv libft.a ${OBJECTS}
+	ar -rsv libftprintf.a ${OBJECTS}
 
 clean:
 	rm -f ${OBJECTS}
@@ -19,6 +19,4 @@ fclean: clean
 	
 re:	fclean all
 
-rebonus: fclean bonus
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
