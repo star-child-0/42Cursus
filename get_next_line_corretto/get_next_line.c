@@ -42,8 +42,8 @@
 
 #include "get_next_line.h"
 #include <unistd.h>
-//#include <stdio.h>
-//#include <fcntl.h>
+#include <stdio.h>
+#include <fcntl.h>
 
 char	*ft_read_to_left_str(int fd, char *left_str)
 {
@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char	*line;
 	int		i;
@@ -112,4 +112,4 @@ char	*get_next_line(int fd)
 	close(fd2);
 	close(fd3);
 	return (0);
-}*/
+}

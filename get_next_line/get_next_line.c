@@ -11,54 +11,101 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#define BUFFER_SIZE 42
 #include <fcntl.h>
 
-char    *join_and_free(char *buffer, char *buf)
+char    *file_read(int fd, char *stash)
 {
-    char    *temp;
-
-    temp = ft_strjoin(buffer, buf);
-    free(buf);
-    return (temp);
-}
-
-char    *file_read(int fd, char *buf)
-{
-    int     nbytes;
+    int     bytes;
     char    *buffer;
 
-    if (!buf)
-        buf = ft_calloc(1, 1);
-    nbytes = 1;
-    buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-    while (nbytes != 0)
+    buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
+    if (buffer)
     {
-        nbytes = read(fd, buf, BUFFER_SIZE);
-        if (nbytes == -1)
+        bytes = 1;
+        while (bytes != 0 && !ft_strchr(stash, '\n'))
         {
-            free(buffer);
-            return (NULL);
+            bytes = read(fd, buffer, BUFFER_SIZE);
+            if (bytes == -1)
+            {
+                free(stash);
+                return (NULL);
+            }
+            buffer[bytes] = '\0';
+            stash = ft_strjoin(stash, buffer);
         }
-        buffer[nbytes] = 0;
-        buffer = join_and_free(buffer, buf);
-        if (ft_strchr(buffer, '\n'))
-            break ;
+        free(buffer);
+        return (stash);
     }
-    free(buffer);
-    return (buf);
+    return (NULL);
+}
+
+char    *trim_stash(char *stash)
+{
+    int     i;
+    char    *line;
+
+    i = 0;
+    if (!stash[i])
+        return (NULL);
+    while (stash[i] && stash[i] != '\n')
+        i++;
+    line = malloc((i + 2) * sizeof(char));
+    if (!line)
+        return (NULL);
+    i = -1;
+    while (stash[++i] != '\n')
+        line[i] = stash[i];
+    if (stash[++i] == '\n')
+        line[i] = '\n';
+    line[++i] = '\0';
+    return (line);
+}
+
+char    *new_line(char *stash)
+{
+    int     i;
+    int     j;
+    char    *nl;
+
+    i = 0;
+    j = -1;
+    while (stash[i] != '\0' && stash[i] != '\n')
+        i++;
+    if (stash[i] != '\0')
+    {
+        free(stash);
+        return (NULL);
+    }
+    nl = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
+    while (stash[++j + i] != '\0')
+        nl[j] = stash[i + j];
+    free(stash);
+    return (nl);
 }
 
 char    *get_next_line(int fd)
 {
-    static char     *buffer;
+    static char     *stash;
     char            *line;
 
-    if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+    if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
-    buffer = file_read(fd, buffer);
-    if (!buffer)
+    stash = file_read(fd, stash);
+    if (!stash)
         return (NULL);
-    
+    line = trim_stash(stash);
+    stash = new_line(stash);
+    free(stash);
     return (line);
+}
+
+int main()
+{
+    #include <stdio.h>
+    #include <fcntl.h>
+    #include <stdio.h>
+
+    int     fd = open("txt1.txt", 'r');
+    printf("%s", get_next_line(fd));
+    close(fd);
 }
