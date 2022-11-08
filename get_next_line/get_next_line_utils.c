@@ -12,23 +12,27 @@
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int		i;
-	int		k;
-	char	*str;
+    int     i;
+    int     j;
+    char    *str;
 
-	str = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
-	if (!s1 || !s2 || !str)
-		return (0);
-	i = -1;
-	k = -1;
-	while (s1[++i] != '\0')
-		str[i] = s1[i];
-	while (s2[++k] != '\0')
-		str[++i] = s2[k];
-	str[i] = '\0';
-	return (str);
+    i = -1;
+    j = -1;
+    if (!s1)
+    {
+        s1 = (char *)malloc(1 * sizeof(char));
+        s1[0] = '\0';
+    }
+    str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+    while (s1[++i] != '\0')
+        str[i] = s1[i];
+    while (s2[++j + i] != '\0')
+        str[j + i] = s2[j];
+    str[++j + i] = '\0';
+    free(s1);
+    return(str);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -38,13 +42,14 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	if (!s)
 		return (0);
-	while (s[i++] != '\0')
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)(&s[i]));
-	}
-	if ((unsigned char)c == '\0')
+	if (c == '\0')
 		return ((char *)&s[i]);
+    while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *)(&s[i]));
+        i++;
+    }
 	return (0);
 }
 
