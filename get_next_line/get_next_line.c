@@ -18,27 +18,51 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+    // int     i;
+    // int     j;
+    // char    *str;
+
+    // i = -1;
+    // j = -1;
+    // if (!s1)
+    // {
+    //     s1 = (char *)malloc(1 * sizeof(char));
+    //     s1[0] = '\0';
+    // }
+    // str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+    // while (s1[++i] != '\0')
+    //     str[i] = s1[i];
+    // while (s2[++j + i] != '\0')
+    //     str[j + i] = s2[j];
+    // str[++j + i] = '\0';
+    // free(s1);
+    // return(str);
+
     int     i;
-    int     j;
-    char    *str;
+	int     j;
+	char	*str;
 
-    i = -1;
-    j = -1;
-    if (!s1)
-    {
-        s1 = (char *)malloc(1 * sizeof(char));
-        s1[0] = '\0';
-    }
-    str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-    while (s1[++i] != '\0')
-        str[i] = s1[i];
-    while (s2[++j + i] != '\0')
-        str[j + i] = s2[j];
-    str[++j + i] = '\0';
-    free(s1);
-    return(str);
+	if (!s1)
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }
-
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -56,6 +80,21 @@ char	*ft_strchr(const char *s, int c)
         i++;
     }
 	return (0);
+
+    // int		i;
+
+	// i = 0;
+	// if (!s)
+	// 	return (0);
+	// if (c == '\0')
+	// 	return ((char *)&s[ft_strlen(s)]);
+	// while (s[i] != '\0')
+	// {
+	// 	if (s[i] == (char) c)
+	// 		return ((char *)&s[i]);
+	// 	i++;
+	// }
+	// return (0);
 }
 
 int	ft_strlen(const char *str)
@@ -98,55 +137,102 @@ char    *file_read(int fd, char *stash)
 char    *trim_stash(char *stash)
 {
     int     i;
-    char    *line;
+    // char    *line;
+
+    // i = 0;
+    // if (!stash[i])
+    //     return (NULL);
+    // while (stash[i] && stash[i] != '\n')
+    //     i++;
+    // line = (char *)malloc((i + 2) * sizeof(char));
+    // if (!line)
+    //     return (NULL);
+    // i = 0;
+    // while (stash[i] && stash[i] != '\n')
+    // {
+    //     line[i] = stash[i];
+    //     i++;
+    // }
+    // if (stash[i] == '\n')
+    // {
+    //     line[i] = '\n';
+    //     i++;
+    // }
+    // line[i] = '\0';
+    // return (line);
+
+    char    *str;
 
     i = 0;
-    if (!stash[i])
-        return (NULL);
-    while (stash[i] && stash[i] != '\n')
-        i++;
-    line = malloc((i + 2) * sizeof(char));
-    if (!line)
-        return (NULL);
-    i = 0;
-    while (stash[i] && stash[i] != '\n')
-    {
-        line[i] = stash[i];
-        i++;
-    }
-    if (stash[i] == '\n')
-    {
-        line[i] = '\n';
-        i++;
-    }
-    line[i] = '\0';
-    return (line);
+	if (!stash[i])
+		return (NULL);
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+	{
+		str[i] = stash[i];
+		i++;
+	}
+	if (stash[i] == '\n')
+	{
+		str[i] = stash[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char    *new_line(char *stash)
 {
-    int     i;
-    int     j;
-    char    *nl;
+    // int     i;
+    // int     j;
+    // char    *nl;
 
-    i = 0;
-    j = 0;
-    while (stash[i] && stash[i] != '\n')
-        i++;
-    if (!stash[i])
-    {
-        free(stash);
-        return (NULL);
-    }
-    nl = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
-    if (!nl)
-        return (NULL);
-    i++;
-    while (stash[j])
-        nl[j++] = stash[i++];
-    nl[j] = '\0';
-    free(stash);
-    return (nl);
+    // i = 0;
+    // j = 0;
+    // while (stash[i] && stash[i] != '\n')
+    //     i++;
+    // if (!stash[i])
+    // {
+    //     free(stash);
+    //     return (NULL);
+    // }
+    // nl = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
+    // if (!nl)
+    //     return (NULL);
+    // i++;
+    // while (stash[j])
+    //     nl[j++] = stash[i++];
+    // nl[j] = '\0';
+    // free(stash);
+    // return (nl);
+
+    int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (!stash[i])
+	{
+		free(stash);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (stash[i])
+		str[j++] = stash[i++];
+	str[j] = '\0';
+	free(stash);
+	return (str);
 }
 
 char    *get_next_line(int fd)
