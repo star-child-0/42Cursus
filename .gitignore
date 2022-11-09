@@ -1,7 +1,6 @@
 .vscode
-warmachine
-*/.git
-*/gnlTester
+**/.git
+**/gnlTester
 # get_next_line_completo
 
 # Prerequisites
