@@ -15,12 +15,30 @@ int     stackify(t_list *list, int argc, char *argv[])
     return (1);
 }
 
+int     check_repetition(int argc, char *argv[])
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    while (++i < argc)
+    {
+        j = i;
+        while (++j < argc)
+            if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+                return (0);
+    }
+    return (1);
+}
+
 int     argv_check(int argc, char *argv[])
 {
     int     i;
     int     j;
 
     i = 0;
+    if (!check_repetition(argc, argv))
+        return (0);
     while (++i < argc)
     {
         j = -1;
@@ -38,9 +56,10 @@ int     main(int argc, char *argv[])
     if (argv_check(argc, argv) && stackify(list, argc, argv) && argc > 1)
     {
         ft_printf("Success\n");
+        stack_size();
     }
     else
         ft_printf("Error\n");    
-    ft_lstclear(list, del);
+    // ft_lstclear(list, del);
     return(0);
 }
