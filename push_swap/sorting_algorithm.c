@@ -1,14 +1,13 @@
-void    middlepoint()
+void middlepoint()
 {
-
 }
 
-void    find_smallest()
+void find_smallest()
 {
-
 }
 
-void    ordered_stack_check()
+void ordered_stack_check()
 {
-    
+	int a;
+	int b;
 }
