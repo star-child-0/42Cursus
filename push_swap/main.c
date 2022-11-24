@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 20:47:36 by anvannin         ###   ########.fr       */
+/*   Created: 2022/11/24 20:43:33 by anvannin          #+#    #+#             */
+/*   Updated: 2022/11/24 20:43:36 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
+int	main(int argc, char *argv[])
+{
+	int		n;
+	t_list	*list;
+	t_list	*anchor;
 
-int		check_repetition(int argc, char *argv[]);
-int		argv_check(int argc, char *argv[]);
-int		stackify(t_list *list, int argc, char *argv[]);
-void	list_output(t_list *list);
-void	free_list(t_list *list);
-
-#endif
+	if (argc <= 1)
+	{
+		ft_putstr("Error\n");
+		return (0);
+	}
+	n = ft_atoi(argv[1]);
+	list = ft_lstnew(*((int **) &n));
+	anchor = list;
+	if (argv_check(argc, argv) && stackify(list, argc, argv) && list)
+	{
+		list = anchor;
+		list_output(list);
+		free_list(anchor);
+	}
+	else
+		ft_putstr("Error\n");
+	return (0);
+}
