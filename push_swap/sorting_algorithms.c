@@ -12,14 +12,40 @@
 
 #include "push_swap.h"
 
-void	middlepoint(void)
+void	size_3_algorithm(t_list *list)
 {
+	t_list	*anchor;
+	
+	anchor = list;
+	while (!is_list_ordered(list))
+	{
+		anchor = list;
+		if (FIRST > SECOND && SECOND < THIRD)
+		{
+			if (FIRST > THIRD)
+				ra(list);
+			else
+				sa(list);
+		}
+		else if (FIRST < SECOND)
+			sa(list);
+		else
+			rra(list);
+	}
+	anchor = list;
 }
 
-void	find_smallest(void)
+void	size_5_algorithm(t_list *list)
 {
+	
 }
 
-void	ordered_stack_check(void)
+void	size_100_algorithm(t_list *list)
 {
+	
+}
+
+void	size_500_algorithm(t_list *list)
+{
+	
 }

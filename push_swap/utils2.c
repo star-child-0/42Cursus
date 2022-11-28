@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_r.c                                     :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:39 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:04:49 by anvannin         ###   ########.fr       */
+/*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
+/*   Updated: 2022/11/24 21:00:50 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list *list)
+int	is_list_ordered(t_list *list)
 {
-	t_list	*anchor;
-
-	anchor = list;
-	while (list)
-		sa(list);
-	list = anchor;
-}
-
-void	rra(t_list *list)
-{
-	void	*temp;
-	void	*temp2;
-	t_list	*last;
-	t_list	*anchor;
+	t_list	*temp;
 	
-	anchor = list;
-	temp = list->content;
-	last = ft_lstlast(list);
-	list->content = last->content;
-	list = list->next;
-	temp2 = list->next->content;
-	while (list)
+	temp = list;
+	while (temp->next != NULL)
 	{
-		list->content = temp2;
-		temp = list->next->content;
-		list = list->next;
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
 	}
-	list = anchor;
+	return (1);
 }

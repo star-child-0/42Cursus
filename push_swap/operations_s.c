@@ -11,3 +11,15 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sa(t_list *list)
+{
+	void	*temp;
+	
+	if (list && list->next)
+	{
+		temp = list->content;
+		list->content = list->next->content;
+		list->next->content = temp;
+	}
+}

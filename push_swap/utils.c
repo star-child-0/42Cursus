@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -81,9 +81,9 @@ void	list_output(t_list *list)
 	while (list)
 	{
 		if (list->next)
-			ft_printf("%d, ", list->content);
+			ft_printf("%d, ", FIRST);
 		else
-			ft_printf("%d\n", list->content);
+			ft_printf("%d\n", FIRST);
 		list = list->next;
 	}
 }

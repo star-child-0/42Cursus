@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -29,7 +29,11 @@ int	main(int argc, char *argv[])
 	if (argv_check(argc, argv) && stackify(list, argc, argv) && list)
 	{
 		list = anchor;
-		list_output(list);
+		
+		ft_printf("%d\n", is_list_ordered(list));
+		
+		// list_size(argc - 1, list);
+		// list_output(list);
 		free_list(anchor);
 	}
 	else

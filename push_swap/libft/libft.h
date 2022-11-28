@@ -28,6 +28,12 @@ typedef struct s_list
 	struct s_list	*next;
 }t_list;
 
+typedef struct i_list
+{
+	int		content;
+	struct i_list	*next;
+}int_list;
+
 //	libft
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
