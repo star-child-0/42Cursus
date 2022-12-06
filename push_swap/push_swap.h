@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 
+// to be deleted, damn you Norminette
 # define FIRST list->content
 # define SECOND list->next->content
 # define THIRD list->next->next->content
@@ -30,7 +31,6 @@ void	size_3_algorithm(t_intl *list);
 void	size_5_algorithm(t_intl *list);
 void	size_100_algorithm(t_intl *list);
 void	size_500_algorithm(t_intl *list);
-int		is_list_ordered(t_intl *list);
 
 // p operations
 
