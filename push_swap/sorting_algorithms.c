@@ -12,40 +12,34 @@
 
 #include "push_swap.h"
 
-void	size_3_algorithm(t_list *list)
+void	size_3_algorithm(t_intl *list)
 {
-	t_list	*anchor;
-	
-	anchor = list;
-	while (!is_list_ordered(list))
+	if (FIRST > SECOND && SECOND < THIRD && FIRST < THIRD)
+		sa(list);
+	else if (FIRST > SECOND && SECOND > THIRD && FIRST > THIRD)
 	{
-		anchor = list;
-		if (FIRST > SECOND && SECOND < THIRD)
-		{
-			if (FIRST > THIRD)
-				ra(list);
-			else
-				sa(list);
-		}
-		else if (FIRST < SECOND)
-			sa(list);
-		else
-			rra(list);
+		sa(list);
+		rra(list);
 	}
-	anchor = list;
+	else if (FIRST > SECOND && SECOND < THIRD && FIRST > THIRD)
+		ra(list);
+	else if (FIRST < SECOND && SECOND > THIRD && FIRST < THIRD)
+	{
+		sa(list);
+		ra(list);
+	}
+	else if (FIRST < SECOND && SECOND > THIRD && FIRST > THIRD)
+		rra(list);
 }
 
-void	size_5_algorithm(t_list *list)
+void	size_5_algorithm(t_intl *list)
 {
-	
 }
 
-void	size_100_algorithm(t_list *list)
+void	size_100_algorithm(t_intl *list)
 {
-	
 }
 
-void	size_500_algorithm(t_list *list)
+void	size_500_algorithm(t_intl *list)
 {
-	
 }

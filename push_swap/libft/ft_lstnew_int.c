@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/12/06 20:13:05 by anvannin          #+#    #+#             */
+/*   Updated: 2022/12/06 20:13:09 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+t_intl	*ft_lstnew_int(int content)
 {
-	int		temp;
-	t_intl	*anchor;
+	t_intl	*new;
 
-	anchor = list;
-	if (list && list->next)
-	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
-	}
-	list = anchor;
-	ft_printf("sa\n");
+	new = (t_intl *)malloc(sizeof(t_intl));
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

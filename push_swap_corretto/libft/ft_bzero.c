@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:37:30 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/21 12:21:45 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_bzero(void *s, size_t n)
 {
-	int		temp;
-	t_intl	*anchor;
+	size_t			i;
+	unsigned char	*cp;
 
-	anchor = list;
-	if (list && list->next)
-	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
-	}
-	list = anchor;
-	ft_printf("sa\n");
+	if (n == 0)
+		return ;
+	i = -1;
+	cp = s;
+	while (++i < n)
+		cp[i] = '\0';
 }

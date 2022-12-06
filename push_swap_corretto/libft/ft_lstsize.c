@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:45:44 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/19 11:45:47 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+int	ft_lstsize(t_list *lst)
 {
-	int		temp;
-	t_intl	*anchor;
+	int	i;
 
-	anchor = list;
-	if (list && list->next)
+	i = 0;
+	while (lst != NULL)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		lst = lst->next;
+		i++;
 	}
-	list = anchor;
-	ft_printf("sa\n");
+	return (i);
 }

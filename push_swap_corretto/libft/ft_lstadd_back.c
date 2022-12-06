@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:44:00 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/21 12:22:15 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		temp;
-	t_intl	*anchor;
+	t_list	*tmp;
 
-	anchor = list;
-	if (list && list->next)
+	if (*lst != NULL)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
-	list = anchor;
-	ft_printf("sa\n");
+	else
+		(*lst) = new;
 }

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:44:25 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/02/26 14:51:11 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_lstclear(t_list **lst, void (*del)(int *))
 {
-	int		temp;
-	t_intl	*anchor;
+	t_list	*tmp;
 
-	anchor = list;
-	if (list && list->next)
+	if (*lst == NULL)
+		return ;
+	while (*lst != NULL)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	list = anchor;
-	ft_printf("sa\n");
 }

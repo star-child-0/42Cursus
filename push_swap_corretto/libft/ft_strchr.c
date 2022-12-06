@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:48:24 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/21 12:23:34 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+char	*ft_strchr(const char *s, int c)
 {
-	int		temp;
-	t_intl	*anchor;
+	int	i;
 
-	anchor = list;
-	if (list && list->next)
+	i = ft_strlen(s) + 1;
+	while (i--)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		if (*s == (char) c)
+			return ((char *) s);
+		s++;
 	}
-	list = anchor;
-	ft_printf("sa\n");
+	return (0);
 }

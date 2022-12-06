@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:44:53 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/02/17 15:42:42 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_lstiter(t_list *lst, void (*f)(int *))
 {
-	int		temp;
-	t_intl	*anchor;
-
-	anchor = list;
-	if (list && list->next)
+	if (lst == NULL)
+		return ;
+	while (lst != NULL)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		f(&lst->content);
+		lst = lst->next;
 	}
-	list = anchor;
-	ft_printf("sa\n");
 }

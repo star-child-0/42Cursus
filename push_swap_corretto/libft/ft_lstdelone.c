@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:44:39 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/02/26 14:51:12 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_lstdelone(t_list *lst, void (*del)(int *))
 {
-	int		temp;
-	t_intl	*anchor;
+	t_list	*tmp;
 
-	anchor = list;
-	if (list && list->next)
+	tmp = lst;
+	if (lst != NULL)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		lst = tmp->next;
+		del(&tmp->content);
+		free(tmp);
 	}
-	list = anchor;
-	ft_printf("sa\n");
 }

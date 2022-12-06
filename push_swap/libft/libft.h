@@ -30,9 +30,9 @@ typedef struct s_list
 
 typedef struct i_list
 {
-	int		content;
+	int				content;
 	struct i_list	*next;
-}int_list;
+}t_intl;
 
 //	libft
 int		ft_isalpha(int c);
@@ -100,5 +100,8 @@ char	*new_line(char *stash);
 char	*trim_stash(char *stash);
 char	*file_read(int fd, char *stash);
 char	*get_next_line(int fd);
+
+//	extras
+t_intl	*ft_lstnew_int(int content);
 
 #endif

@@ -12,34 +12,40 @@
 
 #include "push_swap.h"
 
-void	ra(t_list *list)
+void	ra(t_intl *list)
 {
-	t_list	*anchor;
+	int		temp;
+	t_intl	*anchor;
 
 	anchor = list;
-	while (list)
-		sa(list);
-	list = anchor;
-}
-
-void	rra(t_list *list)
-{
-	void	*temp;
-	void	*temp2;
-	t_list	*last;
-	t_list	*anchor;
-	
-	anchor = list;
-	temp = list->content;
-	last = ft_lstlast(list);
-	list->content = last->content;
-	list = list->next;
-	temp2 = list->next->content;
 	while (list)
 	{
-		list->content = temp2;
-		temp = list->next->content;
+		if (list && list->next)
+		{
+			temp = FIRST;
+			FIRST = SECOND;
+			SECOND = temp;
+		}
 		list = list->next;
 	}
 	list = anchor;
+	ft_printf("ra\n");
+}
+
+void	rra(t_intl *list)
+{
+	t_intl	*last;
+	t_intl	*tmp;
+
+	last = list;
+	tmp = list;
+	while (last->next)
+	{
+		tmp = last;
+		last = last->next;
+	}
+	last->next = list;
+	list = last;
+	tmp->next = NULL;
+	ft_printf("rra\n");
 }

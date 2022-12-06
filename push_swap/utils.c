@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	stackify(t_list *list, int argc, char *argv[])
+int	stackify(t_intl *list, int argc, char *argv[])
 {
 	int	i;
 	int	j;
@@ -23,7 +23,7 @@ int	stackify(t_list *list, int argc, char *argv[])
 	while (++i < argc)
 	{
 		n = ft_atoi(argv[i]);
-		list->next = ft_lstnew(*((int **) &n));
+		list->next = ft_lstnew_int(n);
 		list = list->next;
 	}
 	return (1);
@@ -63,9 +63,9 @@ int	argv_check(int argc, char *argv[])
 	return (1);
 }
 
-void	free_list(t_list *list)
+void	free_list(t_intl *list)
 {
-	t_list	*tmp;
+	t_intl	*tmp;
 
 	tmp = list->next;
 	while (tmp)
@@ -73,17 +73,5 @@ void	free_list(t_list *list)
 		list->next = tmp->next;
 		free(tmp);
 		tmp = list->next;
-	}
-}
-
-void	list_output(t_list *list)
-{
-	while (list)
-	{
-		if (list->next)
-			ft_printf("%d, ", FIRST);
-		else
-			ft_printf("%d\n", FIRST);
-		list = list->next;
 	}
 }

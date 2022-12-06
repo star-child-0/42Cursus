@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_display_exit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/02/12 12:42:41 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/02/26 14:50:40 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	ft_display_exit(void)
 {
-	int		temp;
-	t_intl	*anchor;
-
-	anchor = list;
-	if (list && list->next)
-	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
-	}
-	list = anchor;
-	ft_printf("sa\n");
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
 }

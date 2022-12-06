@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:54:34 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/21 12:21:48 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa(t_intl *list)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int		temp;
-	t_intl	*anchor;
+	void	*ptr;
+	size_t	len;
 
-	anchor = list;
-	if (list && list->next)
-	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
-	}
-	list = anchor;
-	ft_printf("sa\n");
+	len = count * size;
+	ptr = (size_t *) malloc (len);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, len);
+	return (ptr);
 }

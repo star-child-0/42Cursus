@@ -22,27 +22,26 @@
 // check input is correct and put it into a linked-list
 int		argv_check(int argc, char *argv[]);
 int		check_repetition(int argc, char *argv[]);
-int		stackify(t_list *list, int argc, char *argv[]);
+int		stackify(t_intl *list, int argc, char *argv[]);
 
 // depending on list size, the sort logic is different
-void	list_size(int argc, t_list *list);
-void	size_3_algorithm(t_list *list);
-void	size_5_algorithm(t_list *list);
-void	size_100_algorithm(t_list *list);
-void	size_500_algorithm(t_list *list);
-int		is_list_ordered(t_list *list);
+void	list_size(int argc, t_intl *list);
+void	size_3_algorithm(t_intl *list);
+void	size_5_algorithm(t_intl *list);
+void	size_100_algorithm(t_intl *list);
+void	size_500_algorithm(t_intl *list);
+int		is_list_ordered(t_intl *list);
 
 // p operations
 
 // r operations
-void	ra(t_list *list);
-void	rra(t_list *list);
+void	ra(t_intl *list);
+void	rra(t_intl *list);
 
 // s operations
-void	sa(t_list *list);
+void	sa(t_intl *list);
 
 // finish
-void	list_output(t_list *list);
-void	free_list(t_list *list);
+void	free_list(t_intl *list);
 
 #endif

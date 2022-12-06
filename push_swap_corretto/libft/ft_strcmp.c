@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:04:57 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:05:12 by anvannin         ###   ########.fr       */
+/*   Created: 2022/02/26 11:34:19 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/02/26 14:51:33 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	sa(t_intl *list)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int		temp;
-	t_intl	*anchor;
+	int	i;
 
-	anchor = list;
-	if (list && list->next)
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] && s2[i])
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
-	list = anchor;
-	ft_printf("sa\n");
+	return (1);
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcerchi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:00:50 by anvannin         ###   ########.fr       */
+/*   Created: 2022/01/19 11:50:23 by mcerchi           #+#    #+#             */
+/*   Updated: 2022/01/21 12:24:18 by mcerchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_list_ordered(t_intl *list)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_intl	*temp;
-	t_intl	*anchor;
+	unsigned char	c1;
+	unsigned char	c2;
 
-	temp = list;
-	anchor = list;
-	while (temp->next != NULL)
+	while (n--)
 	{
-		if (temp->content > temp->next->content)
+		c1 = (unsigned char) *s1++;
+		c2 = (unsigned char) *s2++;
+		if (c1 != c2)
+			return (c1 - c2);
+		if (c1 == '\0')
 			return (0);
-		temp = temp->next;
 	}
-	list = anchor;
-	return (1);
+	return (0);
 }
