@@ -32,14 +32,15 @@ void	size_3_algorithm(t_intl *list)
 		rra(list);
 }
 
-void	size_5_algorithm(t_intl *list)
+void	size_5_algorithm(t_intl *list_a)
 {
-}
-
-void	size_100_algorithm(t_intl *list)
-{
-}
-
-void	size_500_algorithm(t_intl *list)
-{
+	t_intl	*list_b;
+	
+	list_b = NULL;	
+	pb(list_a, list_b);
+	pb(list_a, list_b);
+	size_3_algorithm(list_a);
+	pa(list_b, list_a);
+	ra(list_a);
+	pa(list_b, list_a);
 }

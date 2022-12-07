@@ -15,11 +15,9 @@
 int	stackify(t_intl *list, int argc, char *argv[])
 {
 	int	i;
-	int	j;
 	int	n;
 
 	i = 1;
-	j = 0;
 	while (++i < argc)
 	{
 		n = ft_atoi(argv[i]);
@@ -74,4 +72,17 @@ void	free_list(t_intl *list)
 		free(tmp);
 		tmp = list->next;
 	}
+}
+
+void	list_size(int argc, t_intl *list)
+{
+	t_intl	*anchor;
+
+	anchor = list;
+	if (argc == 2 && FIRST > SECOND)
+		sa(anchor);
+	else if (argc == 3)
+		size_3_algorithm(list);
+	else if (argc >= 4 && argc <= 5)
+		size_5_algorithm(list);
 }

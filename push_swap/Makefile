@@ -1,45 +1,43 @@
-PUSH_SWAP_FILES = 
+FILES = main.c utils.c sorting_algorithms.c operations_p.c operations_s.c \
+	operations_r.c
 
-PUSH_SWAP_FILES_BONUS = 
-
-LIBFT_FILES = libft/*.c
+FILES_BONUS =
 
 LIBFT = libft/libft.a
-#------------------------------------------------------------------------------------------------------------------------
-OBJECTS=$(FILES:.c=.o)
 
-OBJECTS_BONUS=$(FILES_BONUS:.c=.o)
+OBJECTS = $(FILES:.c=.o)
 
-LIBFT_OBJECTS=$(LIBFT_FILES:.c=.o)
-#------------------------------------------------------------------------------------------------------------------------
+OBJECTS_BONUS = $(FILES_BONUS:.c=.o)
+
 CC = gcc
+
+RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-ARCHIVE = ar -rsv
+LIBFT_CLEAN = make fclean -C libft
 
-NAME = push_swap.a
-#------------------------------------------------------------------------------------------------------------------------
-all: ${NAME}
+NAME = push_swap
 
-${NAME}: libft
-	${CC} ${CFLAGS} -c ${FILES}
-	${ARCHIVE} push_swap.a ${OBJECTS}
+NAME_BONUS = checker
 
-bonus:
-	${CC} ${CFLAGS} -c ${FILES_BONUS}
-	${ARCHIVE} push_swap.a ${OBJECTS_BONUS}
+all: $(NAME)
 
-libft:
-	make -C libft
+$(NAME): $(OBJECTS)
+	make bonus -C ./libft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
 
 clean:
-	rm -f ${OBJECTS}
-	make -C libft clean
+	$(LIBFT_CLEAN)
+	${RM} $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean: clean
-	rm -f ${NAME} ${LIBFT}
-	
-re:	fclean all
+	$(LIBFT_CLEAN)
+	${RM} $(NAME) $(NAME_BONUS) $(OBJECTS) $(OBJECTS_BONUS)
 
-.PHONY: all clean fclean re
+re: fclean bonus
+
+bonus: all $(OBJECTS_BONUS)
+	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJECTS_BONUS) $(LIBFT)
+
+.PHONY:	all clean fclean re

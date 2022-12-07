@@ -29,10 +29,10 @@ int		stackify(t_intl *list, int argc, char *argv[]);
 void	list_size(int argc, t_intl *list);
 void	size_3_algorithm(t_intl *list);
 void	size_5_algorithm(t_intl *list);
-void	size_100_algorithm(t_intl *list);
-void	size_500_algorithm(t_intl *list);
 
 // p operations
+void	pa(t_intl *list_a, t_intl *list_b);
+void	pb(t_intl *list_b, t_intl *list_a);
 
 // r operations
 void	ra(t_intl *list);

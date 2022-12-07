@@ -62,21 +62,16 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		size;
-	char	**arg;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	arg = NULL;
-	size = 0;
 	if (argc < 2)
 		return (0);
 	else
 		ft_check_argv(argc, argv, &stack_a);
-	size = ft_lstsize(stack_a);
-	if (size == 2)
+	if (ft_lstsize(stack_a) == 2)
 		return (0);
-	ft_lst_split(&stack_a, &stack_b, size);
+	ft_lst_split(&stack_a, &stack_b, ft_lstsize(stack_a));
 	ft_lst_delete(&stack_a);
 	ft_lst_delete(&stack_b);
 	return (0);
