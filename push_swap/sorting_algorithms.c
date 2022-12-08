@@ -32,15 +32,40 @@ void	size_3_algorithm(t_intl *list)
 		rra(list);
 }
 
-void	size_5_algorithm(t_intl *list_a)
+//2 3 5 4 1 -> pb
+//3 5 4 1, 2 -> pb
+//---size 3 alg---//
+//5 4 1, 3 2 -> sa
+//4 5 1, 3 2 -> rra
+//---size 3 alg---//
+//1 4 5, 3 2 -> ra
+//4 5 1, 3 2 -> pa
+
+//3 4 5 1, 2 -> pa
+//2 3 4 5 1 -> rra
+//1 2 3 4 5
+void	size_5_algorithm(t_intl *list_a, t_intl *list_b)
 {
-	t_intl	*list_b;
-	
-	list_b = NULL;	
 	pb(list_a, list_b);
 	pb(list_a, list_b);
+	list_output(list_a);
+	list_output(list_b);
+	return;
 	size_3_algorithm(list_a);
-	pa(list_b, list_a);
-	ra(list_a);
-	pa(list_b, list_a);
+	if (list_b->content < list_b->next->content)
+		sb(list_b);
+	while (list_b)
+	{
+		if (list_b->content > list_a->content
+			&& list_b->content < list_a->next->content)
+		{
+			ra(list_a);
+			pa(list_b, list_a);		
+		}
+		else if (list_b->content > ft_lstlast_int(list_a)->content
+			&& list_b->content < list_a->content)
+			pa(list_b, list_a);
+		else
+			rra(list_a);
+	}
 }

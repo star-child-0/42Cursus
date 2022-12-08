@@ -102,5 +102,6 @@ char	*get_next_line(int fd);
 
 //	extras
 t_intl	*ft_lstnew_int(int content);
+t_intl	*ft_lstlast_int(t_intl *lst);
 
 #endif

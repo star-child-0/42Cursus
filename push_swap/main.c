@@ -15,7 +15,8 @@
 int	main(int argc, char *argv[])
 {
 	int		n;
-	t_intl	*list;
+	t_intl	*list_a;
+	t_intl	*list_b;
 	t_intl	*anchor;
 
 	if (argc <= 1)
@@ -23,13 +24,14 @@ int	main(int argc, char *argv[])
 		ft_putstr("Error\n");
 		return (0);
 	}
+	list_b = NULL;
 	n = ft_atoi(argv[1]);
-	list = ft_lstnew_int(n);
-	anchor = list;
-	if (argv_check(argc, argv) && stackify(list, argc, argv) && list)
+	list_a = ft_lstnew_int(n);
+	anchor = list_a;
+	if (argv_check(argc, argv) && stackify(list_a, argc, argv) && list_a)
 	{
-		list = anchor;
-		list_size(argc - 1, list);
+		list_a = anchor;
+		list_size(argc - 1, list_a, list_b);
 		free_list(anchor);
 	}
 	else

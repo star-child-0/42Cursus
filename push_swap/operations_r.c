@@ -32,6 +32,26 @@ void	ra(t_intl *list)
 	ft_printf("ra\n");
 }
 
+void	rb(t_intl *list)
+{
+	int		temp;
+	t_intl	*anchor;
+
+	anchor = list;
+	while (list)
+	{
+		if (list && list->next)
+		{
+			temp = FIRST;
+			FIRST = SECOND;
+			SECOND = temp;
+		}
+		list = list->next;
+	}
+	list = anchor;
+	ft_printf("ra\n");
+}
+
 void	rra(t_intl *list)
 {
 	t_intl	*last;
