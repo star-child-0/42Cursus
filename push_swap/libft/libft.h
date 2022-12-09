@@ -101,6 +101,7 @@ char	*file_read(int fd, char *stash);
 char	*get_next_line(int fd);
 
 //	extras
+int		ft_lstsize_int(t_intl *lst);
 t_intl	*ft_lstnew_int(int content);
 t_intl	*ft_lstlast_int(t_intl *lst);
 

@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2022/12/09 18:53:43 by anvannin         ###   ########.fr       */
+/*   Created: 2022/12/09 18:52:39 by anvannin          #+#    #+#             */
+/*   Updated: 2022/12/09 18:52:41 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_list_ordered(t_intl *list)
+int	ft_lstsize_int(t_intl *lst)
 {
-	t_intl	*anchor;
+	int		k;
+	t_intl	*temp;
 
-	anchor = list;
-	while (list)
+	k = 0;
+	temp = lst;
+	while (lst)
 	{
-		if (list->content > list->next->content)
-			return (0);
+		lst = lst->next;
+		k++;
 	}
-	list = anchor;
-	return (1);
-}
-
-void	list_output(t_intl *list)
-{
-	t_intl	*anchor;
-
-	anchor = list;
-	while (anchor)
-	{
-		if (anchor->next)
-			ft_printf("%d, ", anchor->content);
-		else
-			ft_printf("%d\n", anchor->content);
-		anchor = anchor->next;
-	}
+	return (k);
 }

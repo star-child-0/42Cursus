@@ -32,16 +32,16 @@ void	list_output(t_intl *list);
 
 // depending on list size, the sort logic is different
 void	list_size(int argc, t_intl *list_a, t_intl *list_b);
-void	size_3_algorithm(t_intl *list_a);
-void	size_5_algorithm(t_intl *list_a, t_intl *list_b);
+t_intl	*size_3_algorithm(t_intl *list);
+void	size_5_algorithm(int argc, t_intl *list_a, t_intl *list_b);
 
 // p operations
-void	pa(t_intl *list_a, t_intl *list_b);
-void	pb(t_intl *list_b, t_intl *list_a);
+t_intl	*pa(t_intl *list_b, t_intl *list_a);
+t_intl	*pb(t_intl *list_a, t_intl *list_b);
 
 // r operations
 void	ra(t_intl *list);
-void	rra(t_intl *list);
+t_intl	*rra(t_intl *list);
 
 // s operations
 void	sa(t_intl *list);

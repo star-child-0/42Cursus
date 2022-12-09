@@ -84,5 +84,5 @@ void	list_size(int argc, t_intl *list_a, t_intl *list_b)
 	else if (argc == 3)
 		size_3_algorithm(list_a);
 	else if (argc >= 4 && argc <= 5)
-		size_5_algorithm(list_a, list_b);
+		size_5_algorithm(argc, list_a, list_b);
 }

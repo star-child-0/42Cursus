@@ -52,7 +52,7 @@ void	rb(t_intl *list)
 	ft_printf("ra\n");
 }
 
-void	rra(t_intl *list)
+t_intl	*rra(t_intl *list)
 {
 	t_intl	*last;
 	t_intl	*tmp;
@@ -68,4 +68,5 @@ void	rra(t_intl *list)
 	list = last;
 	tmp->next = NULL;
 	ft_printf("rra\n");
+	return (list);
 }
