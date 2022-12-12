@@ -15,13 +15,18 @@
 t_intl	*pa(t_intl *list_b, t_intl *list_a)
 {
 	t_intl	*tmp;
-
-	tmp = list_b;
-	if (list_b->next)
-		list_b = list_b->next;
+	
+	tmp = list_b;	
+	list_b = list_b->next;	
 	tmp->next = list_a;
 	list_a = tmp;
-	ft_printf("pb\n");
+	
+	ft_printf("list_a: ");
+	list_output(list_a);
+	ft_printf("list_b: ");
+	list_output(list_b);
+
+	ft_printf("pa\n");
 	return (list_b);
 }
 
@@ -37,7 +42,7 @@ t_intl	*pb(t_intl *list_a, t_intl *list_b)
 		list_b = tmp;
 	}
 	else
-	{		
+	{
 		list_b = list_a;
 		list_a = list_a->next;
 		list_b->next = NULL;

@@ -48,7 +48,7 @@ t_intl	*size_3_algorithm(t_intl *list)
 void	size_5_algorithm(int argc, t_intl *list_a, t_intl *list_b)
 {
 	t_intl	*temp;
-	
+
 	temp = list_a;
 	if (argc == 5)
 	{
@@ -61,6 +61,15 @@ void	size_5_algorithm(int argc, t_intl *list_a, t_intl *list_b)
 	list_a = size_3_algorithm(list_a);
 	if (list_b->content < list_b->next->content)
 		sb(list_b);
+
+	ra(list_a);
+	list_b = pa(list_b, list_a);
+	ft_printf("list_a: ");
+	list_output(list_a);
+	ft_printf("list_b: ");
+	list_output(list_b);
+	return;
+
 	while (list_b)
 	{
 		if (list_b->content > list_a->content
