@@ -12,18 +12,50 @@
 
 #include "push_swap.h"
 
-int	stackify(t_intl *list, int argc, char *argv[])
+void	print_list(t_intl **list)
+{
+	t_intl	*tmp;
+	
+	tmp = (*list);
+	while (*list)
+	{
+		if ((*list)->next)
+			ft_printf("%d, ", (*list)->content);
+		else
+			ft_printf("%d\n", (*list)->content);
+		(*list) = (*list)->next;
+	}
+	(*list) = tmp;
+}
+
+t_intl	*ft_push(int content)
+{
+	t_intl	*new;
+
+	new = (t_intl *)malloc(sizeof(t_intl));
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}
+
+int	stackify(t_intl **list, int argc, char *argv[])
 {
 	int	i;
-	int	n;
+	t_intl	*node;
 
+	node = (t_intl *) malloc(sizeof(t_intl));
+	node->content = ft_atoi(argv[1]);
+	node->next = NULL;
+	(*list) = node;
+	if (!list)
+		return (0);
 	i = 1;
 	while (++i < argc)
 	{
-		n = ft_atoi(argv[i]);
-		list->next = ft_lstnew_int(n);
-		list = list->next;
+		(*list)->next = ft_push(ft_atoi(argv[i]));
+		(*list) = (*list)->next;
 	}
+	(*list) = node;
 	return (1);
 }
 
@@ -49,7 +81,7 @@ int	argv_check(int argc, char *argv[])
 	int	j;
 
 	i = 0;
-	if (!check_repetition(argc, argv))
+	if (!check_repetition(argc, argv) || argc == 1)
 		return (0);
 	while (++i < argc)
 	{
@@ -59,30 +91,4 @@ int	argv_check(int argc, char *argv[])
 				return (0);
 	}
 	return (1);
-}
-
-void	free_list(t_intl *list)
-{
-	t_intl	*tmp;
-
-	tmp = list->next;
-	while (tmp)
-	{
-		list->next = tmp->next;
-		free(tmp);
-		tmp = list->next;
-	}
-}
-
-void	list_size(int argc, t_intl *list_a, t_intl *list_b)
-{
-	t_intl	*anchor;
-
-	anchor = list_a;
-	if (argc == 2 && list_a->content > list_a->next->content)
-		sa(anchor);
-	else if (argc == 3)
-		size_3_algorithm(list_a);
-	else if (argc >= 4 && argc <= 5)
-		size_5_algorithm(argc, list_a, list_b);
 }

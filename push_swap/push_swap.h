@@ -16,38 +16,46 @@
 # include "libft/libft.h"
 
 // to be deleted, damn you Norminette
+# define FIRST (*list)->content
+# define SECOND (*list)->next->content
+# define THIRD (*list)->next->next->content
 
-# define FIRST list->content
-# define SECOND list->next->content
-# define THIRD list->next->next->content
+typedef struct i_list
+{
+	int				content;
+	struct i_list	*next;
+}t_intl;
 
 // check input is correct and put it into a linked-list
 int		argv_check(int argc, char *argv[]);
 int		check_repetition(int argc, char *argv[]);
-int		stackify(t_intl *list, int argc, char *argv[]);
+int		stackify(t_intl **list, int argc, char *argv[]);
+t_intl	*ft_push(int content);
 
 // utils 2
-int		is_list_ordered(t_intl *list);
-void	list_output(t_intl *list);
+int		is_list_ordered(t_intl **list);
+void	print_list(t_intl **list);
+int		ft_lstsize_int(t_intl **lst);
+t_intl	*ft_lstlast_int(t_intl **lst);
 
 // depending on list size, the sort logic is different
-void	list_size(int argc, t_intl *list_a, t_intl *list_b);
-t_intl	*size_3_algorithm(t_intl *list);
-void	size_5_algorithm(int argc, t_intl *list_a, t_intl *list_b);
+void	list_size(int argc, t_intl **list_a, t_intl **list_b);
+void	size_3_algorithm(t_intl **list);
+void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 
 // p operations
-t_intl	*pa(t_intl *list_b, t_intl *list_a);
-t_intl	*pb(t_intl *list_a, t_intl *list_b);
+void	pa(t_intl **list_b, t_intl **list_a);
+void	pb(t_intl **list_a, t_intl **list_b);
 
 // r operations
-void	ra(t_intl *list);
-t_intl	*rra(t_intl *list);
+void	ra(t_intl **list);
+void	rra(t_intl **list);
 
 // s operations
-void	sa(t_intl *list);
-void	sb(t_intl *list);
+void	sa(t_intl **list);
+void	sb(t_intl **list);
 
 // finish
-void	free_list(t_intl *list);
+void	free_list(t_intl **list);
 
 #endif

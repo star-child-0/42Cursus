@@ -28,12 +28,6 @@ typedef struct s_list
 	struct s_list	*next;
 }t_list;
 
-typedef struct i_list
-{
-	int				content;
-	struct i_list	*next;
-}t_intl;
-
 //	libft
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -99,10 +93,5 @@ char	*new_line(char *stash);
 char	*trim_stash(char *stash);
 char	*file_read(int fd, char *stash);
 char	*get_next_line(int fd);
-
-//	extras
-int		ft_lstsize_int(t_intl *lst);
-t_intl	*ft_lstnew_int(int content);
-t_intl	*ft_lstlast_int(t_intl *lst);
 
 #endif

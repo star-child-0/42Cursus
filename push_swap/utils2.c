@@ -12,31 +12,51 @@
 
 #include "push_swap.h"
 
-int	is_list_ordered(t_intl *list)
+void	free_list(t_intl **list)
 {
-	t_intl	*anchor;
+	t_intl	*tmp;
 
-	anchor = list;
-	while (list)
+	tmp = (*list)->next;
+	while (tmp)
 	{
-		if (list->content > list->next->content)
+		(*list)->next = tmp->next;
+		free(tmp);
+		tmp = (*list)->next;
+	}
+}
+
+void	list_size(int argc, t_intl **list_a, t_intl **list_b)
+{
+
+	if (argc == 2 && (*list_a)->content > (*list_a)->next->content)
+		sa(list_a);
+	else if (argc == 3)
+		size_3_algorithm(list_a);
+	else if (argc >= 4 && argc <= 5)
+		size_5_algorithm(argc, list_a, list_b);
+}
+
+int	is_list_ordered(t_intl **list)
+{
+	while (*list)
+	{
+		if ((*list)->content > (*list)->next->content)
 			return (0);
 	}
-	list = anchor;
 	return (1);
 }
 
-void	list_output(t_intl *list)
+int	ft_lstsize_int(t_intl **lst)
 {
-	t_intl	*anchor;
+	int		k;
+	t_intl	*temp;
 
-	anchor = list;
-	while (anchor)
+	k = 0;
+	temp = (*lst);
+	while (lst)
 	{
-		if (anchor->next)
-			ft_printf("%d, ", anchor->content);
-		else
-			ft_printf("%d\n", anchor->content);
-		anchor = anchor->next;
+		(*lst) = (*lst)->next;
+		k++;
 	}
+	return (k);
 }

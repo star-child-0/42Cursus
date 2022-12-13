@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_int.c                                   :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 18:53:10 by anvannin          #+#    #+#             */
-/*   Updated: 2022/12/09 18:53:11 by anvannin         ###   ########.fr       */
+/*   Created: 2022/12/02 14:22:18 by mbozzi            #+#    #+#             */
+/*   Updated: 2022/12/13 18:54:42 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-t_intl	*ft_lstlast_int(t_intl *lst)
-{
-	if (lst)
-	{
-		while (lst->next)
-			lst = lst->next;
-	}
-	return (lst);
-}
+# include <signal.h>
+# include <unistd.h>
+# include <sys/time.h>
+# include <stdlib.h>
+
+int		ft_atoi(const char *str);
+char	*ft_itoa(long int n);
+
+#endif
