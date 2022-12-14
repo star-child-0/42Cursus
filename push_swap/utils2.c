@@ -12,22 +12,40 @@
 
 #include "push_swap.h"
 
-void	free_list(t_intl **list)
+int	list_smallest(t_intl **list)
+{
+	t_intl	*tmp;
+	int		n;
+	int		pos;
+
+	tmp = (*list);
+	n = tmp->content;
+	while (tmp->next)
+	{
+		if (tmp->content < n)
+		{
+			n = tmp->content;
+			pos = find_node_index(list, tmp);
+		}
+		tmp = tmp->next;
+	}
+	return (pos);
+}
+
+t_intl	*last_node(t_intl **lst)
 {
 	t_intl	*tmp;
 
-	tmp = (*list)->next;
-	while (tmp)
-	{
-		(*list)->next = tmp->next;
-		free(tmp);
-		tmp = (*list)->next;
-	}
+	tmp = (*lst);
+	if (!tmp)
+		return (NULL);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
 void	list_size(int argc, t_intl **list_a, t_intl **list_b)
 {
-
 	if (argc == 2 && (*list_a)->content > (*list_a)->next->content)
 		sa(list_a);
 	else if (argc == 3)
@@ -38,25 +56,31 @@ void	list_size(int argc, t_intl **list_a, t_intl **list_b)
 
 int	is_list_ordered(t_intl **list)
 {
-	while (*list)
+	t_intl	*tmp;
+
+	tmp = (*list);
+	while (tmp->next)
 	{
-		if ((*list)->content > (*list)->next->content)
+		if (tmp->content > tmp->next->content)
 			return (0);
+		tmp = tmp->next;
 	}
 	return (1);
 }
 
-int	ft_lstsize_int(t_intl **lst)
+int	find_node_index(t_intl **list, t_intl *node)
 {
-	int		k;
-	t_intl	*temp;
+	t_intl	*tmp;
+	int		i;
 
-	k = 0;
-	temp = (*lst);
-	while (lst)
+	tmp = (*list);
+	i = 0;
+	while (tmp->next)
 	{
-		(*lst) = (*lst)->next;
-		k++;
+		if (node == tmp)
+			return (i);
+		i++;
+		tmp = tmp->next;
 	}
-	return (k);
+	return (-1);
 }

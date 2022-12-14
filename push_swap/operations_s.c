@@ -18,9 +18,9 @@ void	sa(t_intl **list)
 
 	if ((*list) && (*list)->next)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		temp = (*list)->content;
+		(*list)->content = (*list)->next->content;
+		(*list)->next->content = temp;
 	}
 	ft_printf("sa\n");
 }
@@ -31,9 +31,9 @@ void	sb(t_intl **list)
 
 	if ((*list) && (*list)->next)
 	{
-		temp = FIRST;
-		FIRST = SECOND;
-		SECOND = temp;
+		temp = (*list)->content;
+		(*list)->content = (*list)->next->content;
+		(*list)->next->content = temp;
 	}
 	ft_printf("sb\n");
 }

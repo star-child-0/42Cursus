@@ -14,21 +14,29 @@
 
 void	size_3_algorithm(t_intl **list)
 {
-	if (FIRST > SECOND && SECOND < THIRD && FIRST < THIRD)
+	if ((*list)->content > (*list)->next->content
+		&& (*list)->next->content < (*list)->next->next->content
+		&& (*list)->content < (*list)->next->next->content)
 		sa(list);
-	else if (FIRST > SECOND && SECOND > THIRD && FIRST > THIRD)
+	else if ((*list)->content > (*list)->next->content
+		&& (*list)->next->content > (*list)->next->next->content
+		&& (*list)->content > (*list)->next->next->content)
 	{
 		sa(list);
 		rra(list);
 	}
-	else if (FIRST > SECOND && SECOND < THIRD && FIRST > THIRD)
+	else if ((*list)->content > (*list)->next->content
+		&& (*list)->next->content < (*list)->next->next->content
+		&& (*list)->content > (*list)->next->next->content)
 		ra(list);
-	else if (FIRST < SECOND && SECOND > THIRD && FIRST < THIRD)
+	else if ((*list)->content < (*list)->next->content
+		&& (*list)->next->content > (*list)->next->next->content
+		&& (*list)->content < (*list)->next->next->content)
 	{
 		sa(list);
 		ra(list);
 	}
-	else if (FIRST < SECOND && SECOND > THIRD && FIRST > THIRD)
+	else
 		rra(list);
 }
 
@@ -38,51 +46,36 @@ void	size_3_algorithm(t_intl **list)
 //5 4 1, 3 2 -> sa
 //4 5 1, 3 2 -> rra
 //---size 3 alg---//
-//1 4 5, 3 2 -> ra
-//4 5 1, 3 2 -> pa
-
-//3 4 5 1, 2 -> pa
+//1 4 5, 3 2 -> sb
+//1 4 5, 2 3 -> ra
+//4 5 1, 2 3 -> pa
+//2 4 5 1, 3 -> ra
+//4 5 1 2, 3 -> pa
+//3 4 5 1 2 -> rra
 //2 3 4 5 1 -> rra
 //1 2 3 4 5
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 {
-	t_intl	*temp;
+	int	n;
 
-	temp = (*list_a);
 	if (argc == 5)
-	{
 		pb(list_a, list_b);
-		(*list_b) = temp;
-	}
-	temp = (*list_a);
 	pb(list_a, list_b);
-	(*list_b) = temp;
 	size_3_algorithm(list_a);
-	if ((*list_b)->content < (*list_b)->next->content)
+	if ((*list_b)->content > (*list_b)->next->content)
 		sb(list_b);
-
+	//-----------------------------------------------------
 	ra(list_a);
 	pa(list_b, list_a);
-	ft_printf("list_a: ");
-	// print_list(list_a);
-	ft_printf("list_b: ");
-	// print_list(list_b);
-	return;
-
-	while (list_b)
+	ra(list_a);
+	pa(list_b, list_a);
+	//-----------------------------------------------------
+	n = list_smallest(list_a);
+	while (!is_list_ordered(list_a))
 	{
-		if ((*list_b)->content > (*list_a)->content
-			&& (*list_b)->content < (*list_a)->next->content)
-		{
-			ra(list_a);
-			pa(list_b, list_a);
-		}
-		else if ((*list_b)->content > ft_lstlast_int(list_a)->content
-			&& (*list_b)->content < (*list_a)->content)
-			pa(list_b, list_a);
-		else
+		if (n > argc / 2)
 			rra(list_a);
+		else
+			ra(list_a);
 	}
-	ft_printf("list_a: ");
-	// print_list(list_a);
 }

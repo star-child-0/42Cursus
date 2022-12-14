@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sibrahim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 13:19:41 by sibrahim          #+#    #+#             */
-/*   Updated: 2022/10/20 13:19:43 by sibrahim         ###   ########.fr       */
+/*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
+/*   Updated: 2022/12/14 20:44:48 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isalpha(int c)
+void	free_list(t_intl **list)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	t_intl	*tmp;
+
+	tmp = (*list)->next;
+	while (tmp)
+	{
+		(*list)->next = tmp->next;
+		free(tmp);
+		tmp = (*list)->next;
+	}
 }

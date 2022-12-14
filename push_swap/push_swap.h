@@ -15,47 +15,43 @@
 
 # include "libft/libft.h"
 
-// to be deleted, damn you Norminette
-# define FIRST (*list)->content
-# define SECOND (*list)->next->content
-# define THIRD (*list)->next->next->content
-
 typedef struct i_list
 {
 	int				content;
 	struct i_list	*next;
 }t_intl;
 
-// check input is correct and put it into a linked-list
-int		argv_check(int argc, char *argv[]);
-int		check_repetition(int argc, char *argv[]);
-int		stackify(t_intl **list, int argc, char *argv[]);
-t_intl	*ft_push(int content);
-
-// utils 2
-int		is_list_ordered(t_intl **list);
+// utils.c
 void	print_list(t_intl **list);
-int		ft_lstsize_int(t_intl **lst);
-t_intl	*ft_lstlast_int(t_intl **lst);
+t_intl	*ft_push(int content);
+int		stackify(t_intl **list, int argc, char *argv[]);
+int		check_repetition(int argc, char *argv[]);
+int		argv_check(int argc, char *argv[]);
 
-// depending on list size, the sort logic is different
+// utils2.c
+int		list_smallest(t_intl **list);
+t_intl	*last_node(t_intl **lst);
 void	list_size(int argc, t_intl **list_a, t_intl **list_b);
+int		is_list_ordered(t_intl **list);
+int		find_node_index(t_intl **list, t_intl *node);
+
+// utils3.c
+void	free_list(t_intl **list);
+
+// sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 
-// p operations
+// operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);
 void	pb(t_intl **list_a, t_intl **list_b);
 
-// r operations
+// operations_r.c
 void	ra(t_intl **list);
 void	rra(t_intl **list);
 
-// s operations
+// operations_s.c
 void	sa(t_intl **list);
 void	sb(t_intl **list);
-
-// finish
-void	free_list(t_intl **list);
 
 #endif

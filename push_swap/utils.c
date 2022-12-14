@@ -15,7 +15,7 @@
 void	print_list(t_intl **list)
 {
 	t_intl	*tmp;
-	
+
 	tmp = (*list);
 	while (*list)
 	{
@@ -40,7 +40,7 @@ t_intl	*ft_push(int content)
 
 int	stackify(t_intl **list, int argc, char *argv[])
 {
-	int	i;
+	int		i;
 	t_intl	*node;
 
 	node = (t_intl *) malloc(sizeof(t_intl));

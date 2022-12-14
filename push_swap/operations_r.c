@@ -15,16 +15,18 @@
 void	ra(t_intl **list)
 {
 	int		temp;
+	t_intl	*anchor;
 
-	while (list)
+	anchor = (*list);
+	while (anchor)
 	{
-		if (list && (*list)->next)
+		if (anchor && anchor->next)
 		{
-			temp = FIRST;
-			FIRST = SECOND;
-			SECOND = temp;
+			temp = anchor->content;
+			anchor->content = anchor->next->content;
+			anchor->next->content = temp;
 		}
-		(*list) = (*list)->next;
+		anchor = anchor->next;
 	}
 	ft_printf("ra\n");
 }
@@ -32,18 +34,20 @@ void	ra(t_intl **list)
 void	rb(t_intl **list)
 {
 	int		temp;
+	t_intl	*anchor;
 
-	while (list)
+	anchor = (*list);
+	while (anchor)
 	{
-		if (list && (*list)->next)
+		if (anchor && anchor->next)
 		{
-			temp = FIRST;
-			FIRST = SECOND;
-			SECOND = temp;
+			temp = anchor->content;
+			anchor->content = anchor->next->content;
+			anchor->next->content = temp;
 		}
-		(*list) = (*list)->next;
+		anchor = anchor->next;
 	}
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 void	rra(t_intl **list)

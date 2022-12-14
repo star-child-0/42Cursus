@@ -1,5 +1,5 @@
-FILES = main.c utils.c utils2.c sorting_algorithms.c operations_p.c \
-	operations_s.c operations_r.c
+FILES = main.c utils.c utils2.c utils3.c sorting_algorithms.c \
+	operations_p.c operations_s.c operations_r.c
 
 LIBFT = libft/libft.a
 
