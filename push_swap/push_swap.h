@@ -22,20 +22,23 @@ typedef struct i_list
 }t_intl;
 
 // utils.c
-void	print_list(t_intl **list);
+void	list_print(t_intl **list);
 t_intl	*ft_push(int content);
 int		stackify(t_intl **list, int argc, char *argv[]);
 int		check_repetition(int argc, char *argv[]);
 int		argv_check(int argc, char *argv[]);
 
 // utils2.c
-int		list_smallest(t_intl **list);
-t_intl	*last_node(t_intl **lst);
+int	node_smallest_pos(t_intl **list);
+t_intl	*node_last(t_intl **lst);
 void	list_size(int argc, t_intl **list_a, t_intl **list_b);
 int		is_list_ordered(t_intl **list);
-int		find_node_index(t_intl **list, t_intl *node);
+int		node_index(t_intl **list, t_intl *node);
 
 // utils3.c
+t_intl	*node_biggest(t_intl **list);
+int	list_lenght(t_intl **list);
+t_intl	*node_smallest(t_intl **list);
 void	free_list(t_intl **list);
 
 // sorting_algorithms.c

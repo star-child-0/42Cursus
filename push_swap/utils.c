@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	print_list(t_intl **list)
+void	list_print(t_intl **list)
 {
 	t_intl	*tmp;
 

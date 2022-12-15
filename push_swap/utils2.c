@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	list_smallest(t_intl **list)
+int	node_smallest_pos(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;
@@ -25,14 +25,14 @@ int	list_smallest(t_intl **list)
 		if (tmp->content < n)
 		{
 			n = tmp->content;
-			pos = find_node_index(list, tmp);
+			pos = node_index(list, tmp);
 		}
 		tmp = tmp->next;
 	}
 	return (pos);
 }
 
-t_intl	*last_node(t_intl **lst)
+t_intl	*node_last(t_intl **lst)
 {
 	t_intl	*tmp;
 
@@ -68,7 +68,7 @@ int	is_list_ordered(t_intl **list)
 	return (1);
 }
 
-int	find_node_index(t_intl **list, t_intl *node)
+int	node_index(t_intl **list, t_intl *node)
 {
 	t_intl	*tmp;
 	int		i;
