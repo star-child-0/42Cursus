@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 	}
 	if (argv_check(argc, argv) && stackify(&list_a, argc, argv))
 	{
-		list_size(argc - 1, &list_a, &list_b);
+		algorithm_selector(argc - 1, &list_a, &list_b);
 		list_print(&list_a);
 		free_list(&list_a);
 	}

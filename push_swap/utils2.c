@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	node_smallest_pos(t_intl **list)
+int	list_smallest_pos(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;
@@ -44,14 +44,14 @@ t_intl	*node_last(t_intl **lst)
 	return (tmp);
 }
 
-void	list_size(int argc, t_intl **list_a, t_intl **list_b)
+void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 {
 	if (argc == 2 && (*list_a)->content > (*list_a)->next->content)
 		sa(list_a);
 	else if (argc == 3)
 		size_3_algorithm(list_a);
 	else if (argc >= 4 && argc <= 5)
-		size_5_algorithm(argc, list_a, list_b);
+		size_5_algorithm(list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)
@@ -59,7 +59,7 @@ int	is_list_ordered(t_intl **list)
 	t_intl	*tmp;
 
 	tmp = (*list);
-	while (tmp->next)
+	while (tmp)
 	{
 		if (tmp->content > tmp->next->content)
 			return (0);

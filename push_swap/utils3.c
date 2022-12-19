@@ -12,57 +12,51 @@
 
 #include "push_swap.h"
 
-t_intl	*node_biggest(t_intl **list)
+int	list_biggest(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;
-	t_intl	*big;
 
 	tmp = (*list);
 	n = tmp->content;
-	while (tmp->next)
+	while (tmp)
 	{
 		if (tmp->content > n)
-		{
 			n = tmp->content;
-			big = tmp;
-		}
 		tmp = tmp->next;
 	}
-	return (big);
+	return (n);
+}
+
+int	list_smallest(t_intl **list)
+{
+	t_intl	*tmp;
+	int		n;
+
+	tmp = (*list);
+	n = tmp->content;
+	while (tmp)
+	{
+		if (tmp->content < n)
+			n = tmp->content;
+		tmp = tmp->next;
+	}
+	return (n);
 }
 
 int	list_lenght(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;
-	
+
 	tmp = (*list);
-	n = 0;
+	n = 1;
 	while (tmp->next)
 	{
 		tmp = tmp->next;
 		n++;
 	}
 	return (n);
-}
-
-t_intl	*node_smallest(t_intl **list)
-{
-	t_intl	*tmp;
-	int		n;
-
-	tmp = (*list);
-	n = tmp->content;
-	while (tmp->next)
-	{
-		if (tmp->content < n)
-		{
-			n = tmp->content;
-		}
-		tmp = tmp->next;
-	}
-	return (tmp);
 }
 
 void	free_list(t_intl **list)

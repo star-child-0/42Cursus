@@ -67,3 +67,21 @@ void	rra(t_intl **list)
 	tmp->next = NULL;
 	ft_printf("rra\n");
 }
+
+void	rrb(t_intl **list)
+{
+	t_intl	*last;
+	t_intl	*tmp;
+
+	last = (*list);
+	tmp = (*list);
+	while (last->next)
+	{
+		tmp = last;
+		last = last->next;
+	}
+	last->next = (*list);
+	(*list) = last;
+	tmp->next = NULL;
+	ft_printf("rrb\n");
+}

@@ -29,21 +29,21 @@ int		check_repetition(int argc, char *argv[]);
 int		argv_check(int argc, char *argv[]);
 
 // utils2.c
-int	node_smallest_pos(t_intl **list);
+int		list_smallest_pos(t_intl **list);
 t_intl	*node_last(t_intl **lst);
-void	list_size(int argc, t_intl **list_a, t_intl **list_b);
+void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
 int		is_list_ordered(t_intl **list);
 int		node_index(t_intl **list, t_intl *node);
 
 // utils3.c
-t_intl	*node_biggest(t_intl **list);
-int	list_lenght(t_intl **list);
-t_intl	*node_smallest(t_intl **list);
+int		list_biggest(t_intl **list);
+int		list_smallest(t_intl **list);
+int		list_lenght(t_intl **list);
 void	free_list(t_intl **list);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
-void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
+void	size_5_algorithm(t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);
@@ -51,7 +51,9 @@ void	pb(t_intl **list_a, t_intl **list_b);
 
 // operations_r.c
 void	ra(t_intl **list);
+void	rb(t_intl **list);
 void	rra(t_intl **list);
+void	rrb(t_intl **list);
 
 // operations_s.c
 void	sa(t_intl **list);

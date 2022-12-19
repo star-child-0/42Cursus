@@ -14,8 +14,6 @@
 
 void	size_3_algorithm(t_intl **list)
 {
-	if (is_list_ordered(list))
-		return ;
 	if ((*list)->content > (*list)->next->content
 		&& (*list)->next->content < (*list)->next->next->content
 		&& (*list)->content < (*list)->next->next->content)
@@ -42,20 +40,31 @@ void	size_3_algorithm(t_intl **list)
 		rra(list);
 }
 
-void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
+void	size_5_algorithm(t_intl **list_a, t_intl **list_b)
 {
-	int	n;
-	
-	// if the first and the second are the smallest push them in list_b and
-	// keep them in reverse order, then size_3 on list_a
-	//-----------------------------------------------------
-	return;
-	n = list_lenght(list_a);
-	while (!is_list_ordered(list_a))
+	while (list_lenght(list_a) > 3)
 	{
-		if (n > argc / 2)
-			rra(list_a);
+		if ((*list_a)->content == list_smallest(list_a)
+			|| (*list_a)->content == list_biggest(list_a))
+			pb(list_a, list_b);
 		else
 			ra(list_a);
+	}
+	if (!is_list_ordered(list_a))
+		size_3_algorithm(list_a);
+	if ((*list_b)->content < (*list_b)->next->content)
+		sb(list_b);
+	pa(list_b, list_a);
+	if ((*list_a)->content == list_biggest(list_a))
+	{
+		ra(list_a);
+		pa(list_b, list_a);
+	}
+	else if ((*list_b)->content < list_smallest(list_a))
+		pa(list_b, list_a);
+	else
+	{
+		ra(list_a);
+		pa(list_b, list_a);
 	}
 }
