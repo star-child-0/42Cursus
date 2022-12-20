@@ -18,13 +18,16 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	make -C ./libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	clear
 clean:
 	make clean -C libft
 	$(RM) $(OBJECTS)
+	clear
 
 fclean: clean
 	make fclean -C libft
 	$(RM) $(NAME) $(OBJECTS)
+	clear
 
 re: fclean all
 

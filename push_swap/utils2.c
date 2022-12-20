@@ -32,26 +32,30 @@ int	list_smallest_pos(t_intl **list)
 	return (pos);
 }
 
-t_intl	*node_last(t_intl **lst)
+int	list_last(t_intl **lst)
 {
 	t_intl	*tmp;
 
 	tmp = (*lst);
-	if (!tmp)
-		return (NULL);
 	while (tmp->next)
 		tmp = tmp->next;
-	return (tmp);
+	return (tmp->content);
 }
 
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 {
-	if (argc == 2 && (*list_a)->content > (*list_a)->next->content)
+	if (is_list_ordered(list_a))
+		return ;
+	if (argc == 2)
 		sa(list_a);
-	else if (argc == 3 && !is_list_ordered(list_a))
+	else if (argc == 3)
 		size_3_algorithm(list_a);
-	else if (argc >= 4 && argc <= 5 && !is_list_ordered(list_a))
+	else if (argc >= 4 && argc <= 5)
 		size_5_algorithm(argc, list_a, list_b);
+	else if (argc >= 6 && argc <= 100)
+		size_100_algorithm(list_a, list_b);
+	else
+		size_500_algorithm(list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)

@@ -30,7 +30,7 @@ int		argv_check(int argc, char *argv[]);
 
 // utils2.c
 int		list_smallest_pos(t_intl **list);
-t_intl	*node_last(t_intl **lst);
+int		list_last(t_intl **lst);
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
 int		is_list_ordered(t_intl **list);
 int		node_index(t_intl **list, t_intl *node);
@@ -45,6 +45,8 @@ void	free_list(t_intl **list);
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 void	size_5_algorithm2(t_intl **list_a, t_intl **list_b);
+void	size_100_algorithm(t_intl **list_a, t_intl **list_b);
+void	size_500_algorithm(t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);
