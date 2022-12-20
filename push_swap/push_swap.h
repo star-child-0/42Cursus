@@ -44,6 +44,7 @@ void	free_list(t_intl **list);
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(t_intl **list_a, t_intl **list_b);
+void	size_5_algorithm2(t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);
