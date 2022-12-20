@@ -45,8 +45,7 @@ void	free_list(t_intl **list);
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 void	size_5_algorithm2(t_intl **list_a, t_intl **list_b);
-void	size_100_algorithm(t_intl **list_a, t_intl **list_b);
-void	size_500_algorithm(t_intl **list_a, t_intl **list_b);
+void	lis_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);

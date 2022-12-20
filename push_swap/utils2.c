@@ -52,10 +52,8 @@ void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 		size_3_algorithm(list_a);
 	else if (argc >= 4 && argc <= 5)
 		size_5_algorithm(argc, list_a, list_b);
-	else if (argc >= 6 && argc <= 100)
-		size_100_algorithm(list_a, list_b);
-	else
-		size_500_algorithm(list_a, list_b);
+	else if (argc >= 6)
+		lis_algorithm(argc, list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)

@@ -84,27 +84,36 @@ void	size_5_algorithm2(t_intl **list_a, t_intl **list_b)
 		pa(list_b, list_a);
 }
 
-// 1 3 4 6 2 5 -> ra		5 1 2 3 6 4 -> pb
-// 3 4 6 2 5 1 -> ra		
-// 4 6 2 5 1 3 -> ra
-// 6 2 5 1 3 4 -> ra, pb
-// 5 1 3 4 6, 2 -> pb
-// 1 3 4 6, 5 2
-void	size_100_algorithm(t_intl **list_a, t_intl **list_b)
+// 1 3 4|6 2 5 -> ra		5 1 2|3 6 4 -> rra			3 6 5 1 4 2
+// ^----dal secondo in poi----^
+// 3 4 6 2 5 1 -> ra, ra	4 5 1 2 3 6 -> rra, pb
+// 6 2 5 1 3 4 -> pb pb		4 5 1 2 3, 6 -> ra, ra, pa		1 2 3 6, 4 5
+// 5 1 3 4, 2 6 -> ra		6 1 2 3 4 5 -> ra
+// 1 3 4 5, 6 2 			1 2 3 4 5 6
+void	lis_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 {
+	int	direction;
+
+	// if pos di midnumber < argc / 2 
+	direction = -1;
+	ra(list_a); //non sempre (?)
+	//else
+	direction = 1;
+	rra(list_a); //non sempre (?)
 	while (!is_list_ordered(list_a))
 	{
-		break ;
+		if (direction == -1 && (*list_a)->content > list_last(list_a)
+			&& (*list_a)->content < (*list_a)->next->content)
+			ra(list_a);
+		else if ((*list_a)->content > list_last(list_a)
+			&& (*list_a)->content < (*list_a)->next->content)
+			rra(list_a);
+		else
+			pb(list_a, list_b);
 	}
-
+	
 	list_print(list_a);
 	list_print(list_b);
 	free_list(list_a);
 	free_list(list_b);
-}
-
-void	size_500_algorithm(t_intl **list_a, t_intl **list_b)
-{
-	free_list(list_a);
-	list_b = NULL;
 }
