@@ -51,7 +51,7 @@ void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 	else if (argc == 3 && !is_list_ordered(list_a))
 		size_3_algorithm(list_a);
 	else if (argc >= 4 && argc <= 5 && !is_list_ordered(list_a))
-		size_5_algorithm(list_a, list_b);
+		size_5_algorithm(argc, list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)
