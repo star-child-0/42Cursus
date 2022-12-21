@@ -87,7 +87,8 @@ int	argv_check(int argc, char *argv[])
 	{
 		j = -1;
 		while (argv[i][++j] != '\0')
-			if (!ft_isdigit(argv[i][j]))
+			if (!(ft_isdigit(argv[i][j]) || argv[i][j] == '+'
+				|| argv[i][j] == '-'))
 				return (0);
 	}
 	return (1);

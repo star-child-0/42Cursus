@@ -2,7 +2,7 @@
 **/.git
 **/visualizer
 **/imgui.ini
-**/push_swap
+push_swap/push_swap
 
 # Prerequisites
 *.d
