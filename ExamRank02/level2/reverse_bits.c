@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   snake_to_camel.c                                   :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 19:19:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/09 19:41:29 by anvannin         ###   ########.fr       */
+/*   Created: 2023/01/10 19:19:09 by anvannin          #+#    #+#             */
+/*   Updated: 2023/01/10 19:33:56 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdlib.h>
 
-int main(int argc, char *argv[])
+void	print_bits(unsigned char octet)
 {
-	int		i;
-	int		w;
-	
-	i = -1;
-	w = 0;
-	if (argc != 2)
+	unsigned char	n;
+	int			i = 8;
+	while (i--)
 	{
-		write(1, "\n", 1);
-		return (0);
+		n = (octet >> i & 1) + '0';
+		write(1, &n, 1);
 	}
-	while (argv[1][++i])
-	{
-		char c = argv[1][i];
+}
 
-		if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
-		{
-			c += 32;
-			write(1, "_", 1);
-		}
-		write(1, &c, 1);
+unsigned char	reverse_bits(unsigned char octet)
+{
+	unsigned char	n;
+	int			i = 8;
+	while (i--)
+	{
+		// print_bits(n);
+		// write(1, "\n", 1);
+		n = n * 2 + (octet % 2);
+		octet = octet / 2;
 	}
-	return (0);
+	return (n);	
+}
+
+int main(void){
+	print_bits(reverse_bits(2));
 }
