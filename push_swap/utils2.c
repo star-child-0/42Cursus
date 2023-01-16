@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2022/12/09 18:53:43 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:42:53 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 	else if (argc >= 4 && argc <= 5)
 		size_5_algorithm(argc, list_a, list_b);
 	else if (argc >= 6)
-		lis_algorithm(list_a, list_b);
+		radix_sort(list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)

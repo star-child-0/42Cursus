@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 20:47:36 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:07:35 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ int		list_lenght(t_intl **list);
 void	free_list(t_intl **list);
 
 // utils4.c
-int		biggest_ordered_chunk_size(t_intl **list);
+int		bin_mag(int n);
+int		is_list_revordered(t_intl **list);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 void	size_5_algorithm2(t_intl **list_a, t_intl **list_b);
-void	lis_algorithm(t_intl **list_a, t_intl **list_b);
+void	radix_sort(t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);

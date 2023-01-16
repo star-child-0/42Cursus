@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_algorithms.c                                :+:      :+:    :+:  */
+/*   sorting_algorithms.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:01:54 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:08:02 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,30 @@ void	size_5_algorithm2(t_intl **list_a, t_intl **list_b)
 		pa(list_b, list_a);
 }
 
-void	lis_algorithm(t_intl **list_a, t_intl **list_b)
+void	radix_sort(t_intl **list_a, t_intl **list_b)
 {
-	ft_printf("%d\n", biggest_ordered_chunk_size(list_a));
-	pb(list_a, list_b);
-	pa(list_b, list_a);
+	int	i;
+	int	j;
+	int	lb;
+
+	j = 0;
+	while (j < bin_mag(list_biggest(list_a)))
+	{
+		lb = 1;
+		i = list_lenght(list_a) + 1;
+		while (--i)
+		{
+			if (((*list_a)->content >> j & 1) % 2 == 0)
+			{
+				pb(list_a, list_b);
+				lb ++;
+			}
+			else
+				ra(list_a);
+		}
+		i = 0;
+		while (++i < lb)
+			pa(list_b, list_a);
+		j++;
+	}
 }

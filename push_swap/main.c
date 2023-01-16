@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:43:33 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 20:43:36 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/16 19:30:20 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,12 @@ int	main(int argc, char *argv[])
 
 	list_a = NULL;
 	list_b = NULL;
-	if (argc <= 1)
+	if (argc <= 1 || !argv_check(argc, argv) || !stackify(&list_a, argc, argv))
 	{
 		ft_putstr("Error\n");
 		return (0);
 	}
-	if (argv_check(argc, argv) && stackify(&list_a, argc, argv))
-	{
-		algorithm_selector(argc - 1, &list_a, &list_b);
-		list_print(&list_a);
-		free_list(&list_a);
-	}
-	else
-		ft_putstr("Error\n");
+	algorithm_selector(argc - 1, &list_a, &list_b);
+	free_list(&list_a);
 	return (0);
 }
