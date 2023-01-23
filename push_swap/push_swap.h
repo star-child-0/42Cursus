@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/16 21:07:35 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:22:04 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,18 @@ void	pb(t_intl **list_a, t_intl **list_b);
 // operations_r.c
 void	ra(t_intl **list);
 void	rb(t_intl **list);
+void	rr(t_intl **list_a, t_intl **list_b);
+void	rr_2(t_intl **list_b);
 void	rra(t_intl **list);
+
+// operations_r2.c
 void	rrb(t_intl **list);
+void	rrr(t_intl **list_a, t_intl **list_b);
+void	rrr_2(t_intl **list_b);
 
 // operations_s.c
 void	sa(t_intl **list);
 void	sb(t_intl **list);
+void	ss(t_intl **list_a, t_intl **list_b);
 
 #endif

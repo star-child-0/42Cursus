@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:43:33 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/16 19:30:20 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:46:06 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char *argv[])
 
 	list_a = NULL;
 	list_b = NULL;
-	if (argc <= 1 || !argv_check(argc, argv) || !stackify(&list_a, argc, argv))
+	if (argc == 1)
+		return (0);
+	if (!argv_check(argc, argv) || !stackify(&list_a, argc, argv))
 	{
 		ft_putstr("Error\n");
 		return (0);
