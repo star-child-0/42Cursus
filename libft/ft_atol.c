@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 19:08:09 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:18:16 by anvannin         ###   ########.fr       */
+/*   Created: 2023/01/24 19:08:09 by anvannin          #+#    #+#             */
+/*   Updated: 2023/01/24 21:19:04 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	long	nb;
+	int		i;
+	int		sign;
 
 	i = 0;
 	nb = 0;

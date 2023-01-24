@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
-/*   Updated: 2022/12/14 20:44:48 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:35:54 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	list_biggest(t_intl **list)
+long	list_biggest(t_intl **list)
 {
 	t_intl	*tmp;
-	int		n;
+	long		n;
 
 	tmp = (*list);
 	n = tmp->content;
@@ -28,10 +28,10 @@ int	list_biggest(t_intl **list)
 	return (n);
 }
 
-int	list_smallest(t_intl **list)
+long	list_smallest(t_intl **list)
 {
 	t_intl	*tmp;
-	int		n;
+	long		n;
 
 	tmp = (*list);
 	n = tmp->content;

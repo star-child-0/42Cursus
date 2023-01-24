@@ -6,18 +6,18 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/23 19:22:04 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:32:30 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct i_list
 {
-	int				content;
+	long	long		content;
 	struct i_list	*next;
 }t_intl;
 
@@ -30,18 +30,20 @@ int		argv_check(int argc, char *argv[]);
 
 // utils2.c
 int		list_smallest_pos(t_intl **list);
-int		list_last(t_intl **lst);
+long		list_last(t_intl **lst);
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
 int		is_list_ordered(t_intl **list);
 int		node_index(t_intl **list, t_intl *node);
 
 // utils3.c
-int		list_biggest(t_intl **list);
-int		list_smallest(t_intl **list);
+long		list_biggest(t_intl **list);
+long		list_smallest(t_intl **list);
 int		list_lenght(t_intl **list);
 void	free_list(t_intl **list);
 
 // utils4.c
+void	simplify_list(t_intl **list);
+int		has_list_neg(t_intl **list);
 int		bin_mag(int n);
 int		is_list_revordered(t_intl **list);
 

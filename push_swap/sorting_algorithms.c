@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/16 21:08:02 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:09:48 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 	}
 	if (!is_list_ordered(list_a))
 		size_3_algorithm(list_a);
-	if ((*list_b)->content < (*list_b)->next->content)
+	if ((*list_b)->next && (*list_b)->content < (*list_b)->next->content)
 		sb(list_b);
 	pa(list_b, list_a);
 	if (argc == 4)

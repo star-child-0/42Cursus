@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
-/*   Updated: 2022/11/24 21:00:50 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:20:17 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	stackify(t_intl **list, int argc, char *argv[])
 	t_intl	*node;
 
 	node = (t_intl *) malloc(sizeof(t_intl));
-	node->content = ft_atoi(argv[1]);
+	node->content = ft_atol(argv[1]);
 	node->next = NULL;
 	(*list) = node;
 	if (!list)

@@ -6,14 +6,14 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:12:38 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/23 20:38:39 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:09:34 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <signal.h>
 # include <sys/types.h>
 
