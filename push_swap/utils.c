@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:20:17 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:42:00 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ void	list_print(t_intl **list)
 	t_intl	*tmp;
 
 	tmp = (*list);
-	while (*list)
+	while (tmp)
 	{
-		if ((*list)->next)
-			ft_printf("%d, ", (*list)->content);
+		if (tmp->next)
+			ft_printf("%d, ", tmp->content);
 		else
-			ft_printf("%d\n", (*list)->content);
-		(*list) = (*list)->next;
+			ft_printf("%d\n", tmp->content);
+		tmp = tmp->next;
 	}
-	(*list) = tmp;
 }
 
 t_intl	*ft_push(int content)

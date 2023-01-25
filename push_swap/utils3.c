@@ -6,16 +6,16 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:35:54 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:01:08 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	list_biggest(t_intl **list)
+int	list_biggest(t_intl **list)
 {
 	t_intl	*tmp;
-	long		n;
+	int		n;
 
 	tmp = (*list);
 	n = tmp->content;
@@ -28,10 +28,10 @@ long	list_biggest(t_intl **list)
 	return (n);
 }
 
-long	list_smallest(t_intl **list)
+int	list_smallest(t_intl **list)
 {
-	t_intl	*tmp;
-	long		n;
+	t_intl		*tmp;
+	int			n;
 
 	tmp = (*list);
 	n = tmp->content;
@@ -70,4 +70,22 @@ void	free_list(t_intl **list)
 		free(tmp);
 		tmp = (*list)->next;
 	}
+}
+
+void	simplify_list(t_intl **list)
+{
+	t_intl	*tmp;
+	int		*orig;
+	int		i;
+
+	orig = (int *)malloc(sizeof(int) * list_lenght(list));
+	i = -1;
+	tmp = (*list);
+	while (tmp)
+	{
+		orig[++i] = tmp->content;
+		tmp = tmp->next;
+	}
+	orig = order_arr(orig, list_lenght(list));
+	simplify_list2(list, orig);
 }

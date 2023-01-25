@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:33:09 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:55:04 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	list_smallest_pos(t_intl **list)
 	return (pos);
 }
 
-long	list_last(t_intl **lst)
+int	list_last(t_intl **lst)
 {
 	t_intl	*tmp;
 

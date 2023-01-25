@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:32:30 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:00:26 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct i_list
 {
-	long	long		content;
+	int				content;
 	struct i_list	*next;
 }t_intl;
 
@@ -30,22 +30,24 @@ int		argv_check(int argc, char *argv[]);
 
 // utils2.c
 int		list_smallest_pos(t_intl **list);
-long		list_last(t_intl **lst);
+int		list_last(t_intl **lst);
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
 int		is_list_ordered(t_intl **list);
 int		node_index(t_intl **list, t_intl *node);
 
 // utils3.c
-long		list_biggest(t_intl **list);
-long		list_smallest(t_intl **list);
+int		list_biggest(t_intl **list);
+int		list_smallest(t_intl **list);
 int		list_lenght(t_intl **list);
 void	free_list(t_intl **list);
+void	simplify_list(t_intl **list);
 
 // utils4.c
-void	simplify_list(t_intl **list);
+void	simplify_list2(t_intl **list, int *orig);
 int		has_list_neg(t_intl **list);
 int		bin_mag(int n);
 int		is_list_revordered(t_intl **list);
+int		*order_arr(int *arr, int len);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcerchi <mcerchi@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:48:22 by mcerchi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:48:25 by mcerchi          ###   ########.fr       */
+/*   Updated: 2023/01/25 18:16:57 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	main(int argc, char *argv[])
 		ft_check_argv_c(argc, argv, &stack_a);
 	str = ft_get_next_line_gnl(0);
 	ft_exec_sort(&stack_a, &stack_b, str);
+	list_print(&list_a);
 	ft_check_sort(stack_a);
 	return (0);
 }

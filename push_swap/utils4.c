@@ -6,24 +6,35 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:14:16 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/24 21:11:25 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:00:14 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simplify_list(t_intl **list)
+void	simplify_list2(t_intl **list, int *orig)
 {
 	t_intl	*tmp;
-	int		s;
+	int		max;
+	int		i;
 
-	s = list_smallest(list) * -1 + 1;
 	tmp = (*list);
+	max = list_biggest(list);
 	while (tmp)
 	{
-		tmp->content += s;
+		i = 0;
+		while (orig[++i])
+		{
+			if (tmp->content == orig[i])
+			{
+				tmp->content = i;
+				orig[i] = max + 1;
+				break ;
+			}
+		}
 		tmp = tmp->next;
 	}
+	free(orig);
 }
 
 int	has_list_neg(t_intl **list)
@@ -65,4 +76,27 @@ int	is_list_revordered(t_intl **list)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	*order_arr(int *arr, int len)
+{
+	int	i;
+	int	j;
+	int	t;
+
+	i = -1;
+	while (++i < len - 1)
+	{
+		j = -1;
+		while (++j < len - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				t = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = t;
+			}
+		}
+	}
+	return (arr);
 }
