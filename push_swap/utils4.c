@@ -20,9 +20,11 @@ void	simplify_list2(t_intl **list, int *orig)
 
 	tmp = (*list);
 	max = list_biggest(list);
+	if (max < list_smallest(list) * -1)
+		max = list_smallest(list) * -1;
 	while (tmp)
 	{
-		i = 0;
+		i = -1;
 		while (orig[++i])
 		{
 			if (tmp->content == orig[i])

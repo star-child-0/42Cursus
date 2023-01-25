@@ -27,7 +27,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	algorithm_selector(argc - 1, &list_a, &list_b);
-	list_print(&list_a);
 	free_list(&list_a);
 	return (0);
 }
