@@ -17,6 +17,10 @@
 # include <signal.h>
 # include <sys/types.h>
 
+//	server
 void	sig_handler(int signum);
+
+//	client
+void	send_text(int pid, char *str);
 
 #endif

@@ -15,22 +15,17 @@ CFLAGS = -Wall -Wextra -Werror
 CLIENT = client
 SERVER = server
 
-all: $(CLIENT) $(SERVER)
+all: $(CLIENT) $(SERVER) make -C ../libft
 
 $(CLIENT): $(CLIENT_OBJ)
-	make -C ../libft
 	$(CC) $(CFLAGS) -o $(CLIENT) $(CLIENT_OBJ) $(LIBFT)
-	clear
 
 $(SERVER): $(SERVER_OBJ)
-	make -C ../libft
 	$(CC) $(CFLAGS) -o $(SERVER) $(SERVER_OBJ) $(LIBFT)
-	clear
 
 clean:
 	make clean -C ../libft
 	$(RM) $(CLIENT_OBJ) $(SERVER_OBJ)
-	clear
 
 fclean: clean
 	make fclean -C ../libft
