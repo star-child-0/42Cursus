@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/25 18:42:00 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:55:27 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	stackify(t_intl **list, int argc, char *argv[])
 	i = 1;
 	while (++i < argc)
 	{
+		if (ft_atol(argv[i]) < INT_MIN || ft_atol(argv[i]) > INT_MAX)
+			return (0);
 		(*list)->next = ft_push(ft_atoi(argv[i]));
 		(*list) = (*list)->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:12:01 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/23 20:38:15 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:25:06 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char *argv[])
 {
 	int	pid;
 	
-	if (argc < 3 || argv > 5){
+	if (argc != 3){
 		ft_printf("Wrong input, insert PID and message\n");
 		return (0);
 	}
