@@ -6,6 +6,9 @@
 **/log_error
 **/checker_linux
 **/push_swap_tester
+**/server
+**/client
+**/minitalk-Tester
 
 # Prerequisites
 *.d
