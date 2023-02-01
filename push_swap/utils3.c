@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/31 20:33:42 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:11:20 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	simplify_list(t_intl **list)
 	orig = (int *)malloc(sizeof(int) * list_lenght(list));
 	i = -1;
 	tmp = (*list);
-	while (tmp)
+	while (++i < list_lenght(list))
 	{
-		orig[++i] = tmp->content;
+		orig[i] = tmp->content;
 		tmp = tmp->next;
 	}
 	orig = order_arr(orig, list_lenght(list));
