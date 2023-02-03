@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/31 20:44:16 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:19:10 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	size_5_algorithm2(t_intl **list_a, t_intl **list_b)
 		pa(list_b, list_a);
 }
 
-// 100 1084
-// 500 6784
 void	radix_sort(t_intl **list_a, t_intl **list_b)
 {
 	int	i;
