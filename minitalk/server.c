@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:11:57 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:57:39 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:29:18 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sig_handler(int signum)
 {
 	static int	i = 8;
 	static char	c = 0;
-	
+
 	if (i-- && signum == SIGUSR1)
 		c |= 1 << i;
 	if (i <= 0)

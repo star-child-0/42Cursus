@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:12:01 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:25:06 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:29:10 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	send_text(int pid, char *str)
 {
-	int		i;
-	int		x;
+	int			i;
+	int			x;
 	static int	check;
-	
+
 	i = -1;
 	check = 0;
 	while (str[++i])
 	{
-		x = 9;
-		while (--x)
+		x = 8;
+		while (x--)
 		{
 			if (str[i] >> x & 1)
 				kill(pid, SIGUSR1);
@@ -40,8 +40,9 @@ void	send_text(int pid, char *str)
 int	main(int argc, char *argv[])
 {
 	int	pid;
-	
-	if (argc != 3){
+
+	if (argc != 3)
+	{
 		ft_printf("Wrong input, insert PID and message\n");
 		return (0);
 	}

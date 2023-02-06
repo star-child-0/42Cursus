@@ -24,6 +24,7 @@ $(CLIENT): $(CLIENT_OBJ)
 $(SERVER): $(SERVER_OBJ)
 	make -C ../libft
 	$(CC) $(CFLAGS) -o $(SERVER) $(SERVER_OBJ) $(LIBFT)
+	clear
 
 clean:
 	make clean -C ../libft
@@ -32,6 +33,7 @@ clean:
 fclean: clean
 	make fclean -C ../libft
 	$(RM) $(CLIENT) $(SERVER)
+	clear
 
 re: fclean all
 
