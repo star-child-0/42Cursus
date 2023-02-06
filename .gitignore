@@ -2,7 +2,8 @@
 **/.git
 **/visualizer
 **/imgui.ini
-**/push_swap
+push_swap/push_swap
+push_swap/checker
 **/log_error
 **/checker_linux
 **/push_swap_tester
