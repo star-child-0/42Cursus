@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_checker2.c                                   :+:      :+:    :+:   */
+/*   checker_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:05:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/06 19:06:00 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:07:11 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+int	is_list_ordered_c(t_intl **list)
+{
+	t_intl	*tmp;
+
+	tmp = (*list);
+	while (tmp->next)
+	{
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 int	list_lenght_c(t_intl **list)
 {
@@ -25,4 +39,19 @@ int	list_lenght_c(t_intl **list)
 		n++;
 	}
 	return (n);
+}
+
+void	list_print_c(t_intl **list)
+{
+	t_intl	*tmp;
+
+	tmp = (*list);
+	while (tmp)
+	{
+		if (tmp->next)
+			ft_printf("%d, ", tmp->content);
+		else
+			ft_printf("%d\n", tmp->content);
+		tmp = tmp->next;
+	}
 }

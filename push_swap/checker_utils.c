@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_checker.c                                    :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:52:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/06 19:05:36 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:07:23 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	argv_check_c(int argc, char *argv[])
 	return (1);
 }
 
-t_intl	*ft_push(int content)
+t_intl	*ft_push_c(int content)
 {
 	t_intl	*new;
 
@@ -57,7 +57,7 @@ t_intl	*ft_push(int content)
 	return (new);
 }
 
-int	stackify(t_intl **list, int argc, char *argv[])
+int	stackify_c(t_intl **list, int argc, char *argv[])
 {
 	int		i;
 	t_intl	*node;
@@ -73,24 +73,22 @@ int	stackify(t_intl **list, int argc, char *argv[])
 	{
 		if (ft_atol(argv[i]) < INT_MIN || ft_atol(argv[i]) > INT_MAX)
 			return (0);
-		(*list)->next = ft_push(ft_atoi(argv[i]));
+		(*list)->next = ft_push_c(ft_atoi(argv[i]));
 		(*list) = (*list)->next;
 	}
 	(*list) = node;
 	return (1);
 }
 
-int	is_list_ordered_c(t_intl **list)
+void	free_list_c(t_intl **list)
 {
 	t_intl	*tmp;
 
-	tmp = (*list);
-	while (tmp->next)
+	tmp = (*list)->next;
+	while (tmp)
 	{
-		if (tmp->content > tmp->next->content)
-			return (0);
-		tmp = tmp->next;
+		(*list)->next = tmp->next;
+		free(tmp);
+		tmp = (*list)->next;
 	}
-	return (1);
 }
-
