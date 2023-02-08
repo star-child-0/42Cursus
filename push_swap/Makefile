@@ -3,7 +3,7 @@ FILES = main.c sorting_algorithms.c \
 	operations_p.c operations_s.c operations_r.c operations_r2.c
 	
 BONUS_FILES = checker.c checker_utils.c checker_utils2.c \
-		checker_operations.c checker_operations2.c checker_operations3.c
+		checker_operations.c checker_operations2.c
 
 LIBFT = ../libft/libft.a
 
@@ -28,6 +28,7 @@ bonus: all $(BONUS_NAME)
 $(NAME): $(OBJECTS)
 	make -C ../libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	clear
 
 $(BONUS_NAME): $(BONUS_OBJECTS)
 	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS) $(LIBFT)

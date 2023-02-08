@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:49:53 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/07 19:24:25 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:36:15 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 //	checker
 void	read_moves(t_intl **list_a, t_intl **list_b);
 void	exec_move(char *mov, t_intl **list_a, t_intl **list_b);
+void	exec_move_r(char *mov, t_intl **list_a, t_intl **list_b);
 
 //	checker_utils
 int		argv_check_c(int argc, char *argv[]);
@@ -34,20 +35,13 @@ int		is_list_ordered_c(t_intl **list);
 //	checker_operations.c
 void	do_sa(t_intl **list);
 void	do_sb(t_intl **list);
-void	do_ss(t_intl **list_a, t_intl **list_b);
 void	do_pa(t_intl **list_b, t_intl **list_a);
 void	do_pb(t_intl **list_a, t_intl **list_b);
+void	do_ra(t_intl **list);
 
 //	checker_operations2.c
-void	do_ra(t_intl **list);
 void	do_rb(t_intl **list);
-void	do_rr(t_intl **list_a, t_intl **list_b);
-void	do_rr_2(t_intl **list_b);
 void	do_rra(t_intl **list);
-
-//	checker_operations3.c
 void	do_rrb(t_intl **list);
-void	do_rrr(t_intl **list_a, t_intl **list_b);
-void	do_rrr_2(t_intl **list_b);
 
 #endif
