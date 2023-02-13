@@ -10,6 +10,7 @@ push_swap/checker
 **/server
 **/client
 **/minitalk-Tester
+**/minilibx-linux
 
 # Prerequisites
 *.d
