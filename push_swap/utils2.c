@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/25 19:55:04 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:32:05 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	list_last(t_intl **lst)
 	return (tmp->content);
 }
 
+// else if (argc >= 6)
+// 		radix_sort(list_a, list_b);
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 {
 	if (is_list_ordered(list_a))
@@ -53,10 +55,7 @@ void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 	else if (argc >= 4 && argc <= 5)
 		size_5_algorithm(argc, list_a, list_b);
 	else if (argc >= 6)
-	{
-		simplify_list(list_a);
-		radix_sort(list_a, list_b);
-	}
+		size_any_algorithm(list_a, list_b);
 }
 
 int	is_list_ordered(t_intl **list)

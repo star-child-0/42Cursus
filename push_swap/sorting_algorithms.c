@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/03 19:19:10 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:44:39 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 	int	j;
 	int	lb;
 
+	simplify_list(list_a);
 	j = 0;
 	while (j < bin_mag(list_biggest(list_a)))
 	{
@@ -110,4 +111,13 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 			pa(list_b, list_a);
 		j++;
 	}
+}
+
+void	size_any_algorithm(t_intl **list_a, t_intl **list_b)
+{
+	int	*lis;
+
+	lis = lis_algorithm(list_a);
+	free(lis);
+	list_print(list_b);
 }

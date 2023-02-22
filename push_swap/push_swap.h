@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/25 20:00:26 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:43:32 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		node_index(t_intl **list, t_intl *node);
 int		list_biggest(t_intl **list);
 int		list_smallest(t_intl **list);
 int		list_lenght(t_intl **list);
-void	free_list(t_intl **list);
+void	list_free(t_intl **list);
 void	simplify_list(t_intl **list);
 
 // utils4.c
@@ -49,11 +49,15 @@ int		bin_mag(int n);
 int		is_list_revordered(t_intl **list);
 int		*order_arr(int *arr, int len);
 
+// LIS algorithm
+int		*lis_algorithm(t_intl **list);
+
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b);
 void	size_5_algorithm2(t_intl **list_a, t_intl **list_b);
 void	radix_sort(t_intl **list_a, t_intl **list_b);
+void	size_any_algorithm(t_intl **list_a, t_intl **list_b);
 
 // operations_p.c
 void	pa(t_intl **list_b, t_intl **list_a);

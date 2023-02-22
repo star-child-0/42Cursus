@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:11:20 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:36:28 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	list_lenght(t_intl **list)
 	return (n);
 }
 
-void	free_list(t_intl **list)
+void	list_free(t_intl **list)
 {
 	t_intl	*tmp;
 
