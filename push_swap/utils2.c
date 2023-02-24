@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 19:32:05 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:36:45 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	list_last(t_intl **lst)
 // 		radix_sort(list_a, list_b);
 void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 {
-	if (is_list_ordered(list_a))
+	if ((*list_a)->content < (*list_a)->next->content && argc == 2)
 		return ;
 	if (argc == 2)
 		sa(list_a);
@@ -63,7 +63,7 @@ int	is_list_ordered(t_intl **list)
 	t_intl	*tmp;
 
 	tmp = (*list);
-	while (tmp->next)
+	while (tmp->next != NULL)
 	{
 		if (tmp->content > tmp->next->content)
 			return (0);

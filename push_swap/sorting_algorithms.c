@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 21:44:39 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:37:09 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	size_3_algorithm(t_intl **list)
 
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 {
-	while (list_lenght(list_a) > 3)
+	while (list_length(list_a) > 3)
 	{
 		if ((*list_a)->content == list_smallest(list_a)
 			|| (*list_a)->content == list_biggest(list_a))
 			pb(list_a, list_b);
 		else
 			ra(list_a);
-	}
+	}	
 	if (!is_list_ordered(list_a))
 		size_3_algorithm(list_a);
 	if ((*list_b)->next && (*list_b)->content < (*list_b)->next->content)
@@ -95,7 +95,7 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 	while (j < bin_mag(list_biggest(list_a)))
 	{
 		lb = 1;
-		i = list_lenght(list_a) + 1;
+		i = list_length(list_a) + 1;
 		while (--i)
 		{
 			if (((*list_a)->content >> j & 1) % 2 == 0)
@@ -115,9 +115,7 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 
 void	size_any_algorithm(t_intl **list_a, t_intl **list_b)
 {
-	int	*lis;
-
-	lis = lis_algorithm(list_a);
-	free(lis);
-	list_print(list_b);
+	lis_algorithm(list_a, list_b);
+	list_free(list_a);
+	list_free(list_b);
 }

@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:00:48 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:55:27 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:57:20 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_intl	*ft_push(int content)
 	new->content = content;
 	new->next = NULL;
 	return (new);
+	free(new);
 }
 
 int	stackify(t_intl **list, int argc, char *argv[])
@@ -43,6 +44,8 @@ int	stackify(t_intl **list, int argc, char *argv[])
 	t_intl	*node;
 
 	node = (t_intl *) malloc(sizeof(t_intl));
+	if (!node)
+		return (0);
 	node->content = ft_atol(argv[1]);
 	node->next = NULL;
 	(*list) = node;

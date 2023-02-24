@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 20:44:46 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 21:36:28 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:07:30 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	list_smallest(t_intl **list)
 	return (n);
 }
 
-int	list_lenght(t_intl **list)
+int	list_length(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;
@@ -63,12 +63,11 @@ void	list_free(t_intl **list)
 {
 	t_intl	*tmp;
 
-	tmp = (*list)->next;
-	while (tmp)
+	while ((*list) != NULL)
 	{
-		(*list)->next = tmp->next;
+		tmp = (*list);
+		(*list) = (*list)->next;
 		free(tmp);
-		tmp = (*list)->next;
 	}
 }
 
@@ -78,14 +77,14 @@ void	simplify_list(t_intl **list)
 	int		*orig;
 	int		i;
 
-	orig = (int *)malloc(sizeof(int) * list_lenght(list));
+	orig = (int *)malloc(sizeof(int) * list_length(list));
 	i = -1;
 	tmp = (*list);
-	while (++i < list_lenght(list))
+	while (++i < list_length(list))
 	{
 		orig[i] = tmp->content;
 		tmp = tmp->next;
 	}
-	orig = order_arr(orig, list_lenght(list));
+	orig = order_arr(orig, list_length(list));
 	simplify_list2(list, orig);
 }

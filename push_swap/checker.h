@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:49:53 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 21:36:28 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:16 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		stackify_c(t_intl **list, int argc, char *argv[]);
 void	list_free_c(t_intl **list);
 
 //	checker_utils2
-int		list_lenght_c(t_intl **list);
+int		list_length_c(t_intl **list);
 void	list_print_c(t_intl **list);
 int		is_list_ordered_c(t_intl **list);
 

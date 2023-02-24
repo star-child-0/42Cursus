@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:05:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/07 19:07:11 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:16 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_list_ordered_c(t_intl **list)
 	return (1);
 }
 
-int	list_lenght_c(t_intl **list)
+int	list_length_c(t_intl **list)
 {
 	t_intl	*tmp;
 	int		n;

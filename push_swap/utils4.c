@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:14:16 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:29:57 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:16 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	simplify_list2(t_intl **list, int *orig)
 	while (tmp)
 	{
 		i = -1;
-		while (++i < list_lenght(list))
+		while (++i < list_length(list))
 		{
 			if (tmp->content == orig[i])
 			{
