@@ -28,22 +28,19 @@ bonus: all $(BONUS_NAME)
 $(NAME): $(OBJECTS)
 	make -C ../libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
-	clear
 
 $(BONUS_NAME): $(BONUS_OBJECTS)
 	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS) $(LIBFT)
-	clear
 
 clean:
 	make clean -C ../libft
 	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
-	clear
 
 fclean: clean
 	make fclean -C ../libft
 	$(RM) $(NAME) $(BONUS_NAME) $(OBJECTS) $(BONUS_OBJECTS)
-	clear
 
 re: fclean bonus
 
 .PHONY:	all clean fclean re
+.SILENT: all clean fclean re
