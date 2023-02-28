@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:05:12 by anvannin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:50:19 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/28 21:21:00 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ char	*get_next_line(int fd);
 
 //	extra
 long	ft_atol(char *str);
+double	ft_atof(char *str);
 
 #endif

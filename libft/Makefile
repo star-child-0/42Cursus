@@ -11,7 +11,7 @@ FILES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_printf.c ft_putchar.c ft_put_pointer.c \
 	ft_nbrlen.c ft_putnbr.c ft_putstr.c ft_putnbr_hex.c \
 	ft_putunsign_nbr.c get_next_line.c \
-	ft_atol.c
+	ft_atol.c ft_atof.c
 
 OBJECTS = ${FILES:.c=.o}
 
