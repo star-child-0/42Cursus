@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:30:58 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/24 21:58:02 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:27:53 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,6 @@ int	lis_size(int *len, int list_len)
 	return (max);
 }
 
-void	free_arr(int *arr, int *len, int *lis)
-{
-	free(arr);
-	free(len);
-	free(lis);
-}
-
 int	number_in_array(int n, int *arr, int len)
 {
 	int	i;
@@ -95,7 +88,30 @@ void	get_lis_values(int *len, int *arr, t_intl **list_a, t_intl **list_b)
 		else if (max ++ > INT_MIN)
 			pb(list_a, list_b);
 	}
-	free_arr(arr, len, lis);
-	if ((*list_a)->content > (*list_a)->next->content)
-		ra(list_a);
+	reorder_lis(list_a, arr, len, lis);
+}
+
+void	reorder_lis(t_intl **list_a, int *arr, int *len, int *lis)
+{
+	t_intl	*tmp;
+	int		i;
+
+	tmp = (*list_a);
+	i = 0;
+	free(arr);
+	free(len);
+	free(lis);
+	while (tmp->next)
+	{
+		if (tmp->content == list_smallest(list_a))
+			break ;
+		tmp = tmp->next;
+		i++;
+	}
+	if (i > list_length(list_a) / 2)
+		while (i++ < list_length(list_a))
+			rra(list_a);
+	else
+		while (i-- > 0)
+			ra(list_a);
 }

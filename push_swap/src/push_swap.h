@@ -6,14 +6,14 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/24 21:55:24 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:32:30 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct i_list
 {
@@ -53,8 +53,8 @@ int		*order_arr(int *arr, int len);
 // LIS algorithm
 void	lis_algorithm(t_intl **list_a, t_intl **list_b);
 int		lis_size(int *len, int list_len);
-void	free_arr(int *lis, int *arr, int *len);
 void	get_lis_values(int *len, int *arr, t_intl **list_a, t_intl **list_b);
+void	reorder_lis(t_intl **list_a, int *arr, int *len, int *lis);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);

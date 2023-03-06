@@ -12,6 +12,8 @@ push_swap/checker
 **/minitalk-Tester
 **/minilibx-linux
 fract-ol/fractol
+libft/*.o
+**.o
 
 # Prerequisites
 *.d

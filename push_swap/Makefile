@@ -7,9 +7,15 @@ BONUS_FILES = checker.c checker_utils.c checker_utils2.c \
 
 LIBFT = ../libft/libft.a
 
-OBJECTS = $(FILES:.c=.o)
+SRC_DIR = ./src/
 
-BONUS_OBJECTS = $(BONUS_FILES:.c=.o)
+SRC = $(addprefix $(SRC_DIR), $(FILES))
+
+BONUS_SRC = $(addprefix $(SRC_DIR), $(BONUS_FILES))
+
+OBJECTS = $(SRC:.c=.o)
+
+BONUS_OBJECTS = $(BONUS_SRC:.c=.o)
 
 CC = gcc
 
