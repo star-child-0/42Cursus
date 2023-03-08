@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 20:32:30 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:20:10 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,15 @@ int		*order_arr(int *arr, int len);
 // LIS algorithm
 void	lis_algorithm(t_intl **list_a, t_intl **list_b);
 int		lis_size(int *len, int list_len);
+int		number_in_array(int n, int *arr, int len);
 void	get_lis_values(int *len, int *arr, t_intl **list_a, t_intl **list_b);
 void	reorder_lis(t_intl **list_a, int *arr, int *len, int *lis);
+
+// mov.c
+int		*ft_mov_b(t_intl **list_b);
+int		*ft_mov_a(t_intl **list_a, t_intl **list_b);
+void	mov(t_intl **list_a, t_intl **list_b);
+void	mov_a_fill(t_intl **list_a, int *mov_a, t_intl *tmp_b, int i);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
