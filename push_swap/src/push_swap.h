@@ -6,14 +6,14 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/08 21:43:21 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:44:41 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../../libft/src/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct i_list
 {
@@ -58,10 +58,11 @@ void	get_lis_values(int *len, int *arr, t_intl **list_a, t_intl **list_b);
 void	reorder_lis(t_intl **list_a, int *arr, int *len, int *lis);
 
 // mov.c
-int		*ft_mov_b(t_intl **list_b);
-int		*ft_mov_a(t_intl **list_a, t_intl **list_b);
+int		*ft_mov_b(int len);
+int		*ft_mov_a(t_intl **list_a, t_intl **list_b, int len);
 void	mov(t_intl **list_a, t_intl **list_b);
 void	mov_a_fill(t_intl **list_a, int *mov_a, t_intl *tmp_b, int i);
+int		*find_best_mov(int *mov_a, int *mov_b, int len);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);
