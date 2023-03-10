@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/08 21:22:13 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:02:01 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,4 @@ void	size_any_algorithm(t_intl **list_a, t_intl **list_b)
 {
 	lis_algorithm(list_a, list_b);
 	mov(list_a, list_b);
-	list_free(list_a);
-	list_free(list_b);
 }

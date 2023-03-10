@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:16:24 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/09 17:52:33 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:01:11 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ int	*ft_mov_b(int len)
 
 	mov_b = (int *)malloc(sizeof(int) * len);
 	i = -1;
-	while (++i < len / 2 + 1)
+	while (++i <= len / 2)
 		mov_b[i] = i;
 	j = (i - 2) * -1;
-	while (i < j)
+	if (len % 2 != 0)
+		j--;
+	while (i < len)
 		mov_b[i++] = j++;
 	return (mov_b);
 }
@@ -95,12 +97,38 @@ int	*find_best_mov(int *mov_a, int *mov_b, int len)
 	return (best);
 }
 
+int	find_best_pos(int *best, int len)
+{
+	int	i;
+	int	small;
+	int	small_i;
+
+	i = 0;
+	small = best[i];
+	small_i = i;
+	while (++i < len)
+	{
+		if (best[i] < small)
+		{
+			small = best[i];
+			small_i = i;
+		}
+	}
+	free(best);
+	return (small_i);
+}
+
 // make re && ./push_swap 48 4 8 2 9 12 1 43 42 47 31 -20 7 13 3 10
+/*
+48 4 8 2 9 12 1 43 42 47 31 -20 7 13 3 10
+
+6 8 3 1 2 9 7 4 10 5
+*/
 
 // ft_printf("mov_a:\tmov_b:\tbest:\n");
 // for (int k = 0; k < list_length(list_b); k++)
 // 	ft_printf("  %d\t  %d\t  %d\n", mov_a[k], mov_b[k], best[k]);
-void	mov(t_intl **list_a, t_intl **list_b)
+void	movv(t_intl **list_a, t_intl **list_b)
 {
 	int	*mov_a;
 	int	*mov_b;
@@ -120,7 +148,7 @@ void	mov(t_intl **list_a, t_intl **list_b)
 		// ft_printf("mov_a:\tmov_b:\tbest:\n");
 		// for (int k = 0; k < list_length(list_b); k++)
 		// 	ft_printf("  %d\t  %d\t  %d\n", mov_a[k], mov_b[k], best[k]);
-		
+
 		i = 0;
 		small = best[0];
 		while (i < len)
@@ -132,35 +160,93 @@ void	mov(t_intl **list_a, t_intl **list_b)
 			}
 			i++;
 		}
-		ft_printf("small: %d, small_i: %d\n", small, small_i);
-		
+
 		int	x = mov_a[small_i];
 		int	y = mov_b[small_i];
-		
-		// ft_printf("x: %d, y: %d\n", x, y);
-		
-		while (small_i > 0)
+
+		while (small >= 0)
 		{
-			ft_printf("small_i: %d\n", small_i);
-			if (mov_a[small_i] > 0 && mov_b[small_i] > 0)
+			if (x == 0 && y < 0)
+				rrb(list_b);
+			else if (x > 0 && y > 0)
 				rr(list_a, list_b);
-			else if (mov_a[small_i] < 0 && mov_b[small_i] < 0)
+			else if (x < 0 && y < 0)
 				rrr(list_a, list_b);
-			else if (mov_a[small_i] > 0 && mov_b[small_i] < 0)
+			else if (x > 0 && y == 0)
+			{
+				while (x--)
+					ra(list_a);
+				break;
+			}
+			else if (x > 0 && y < 0)
+			{
+				rrb(list_b);
 				ra(list_a);
+			}
+			else if (y < 0)
+				rrb(list_b);
+			else if ((*list_a)->content > (*list_b)->content
+				&& (*list_b)->content > list_last(list_a))
+				break ;
 			else
 				rb(list_b);
-			
+
 			x--;
-			y--;
+			if (y > 0)
+				y--;
+			else if (y < 0)
+				y++;
 			small_i--;
+			small--;
 		}
+		if ((*list_b)->content > (*list_a)->content
+			&& (*list_b)->content < (*list_a)->next->content)
+			ra(list_a);
 		pa(list_b, list_a);
-		
+
+		if (!is_list_ordered(list_a))
+		{
+			int ls = list_smallest_pos(list_a);
+			if (ls > list_length(list_a) / 2)
+				while (ls-- && !is_list_ordered(list_a))
+					rra(list_a);
+			else
+				while (ls-- && !is_list_ordered(list_a))
+					ra(list_a);
+		}
+
 		free(best);
 		free(mov_a);
 		free(mov_b);
-		
+
 		len--;
 	}
+}
+
+//--------------------------------------------------------------
+
+void	mov(t_intl **list_a, t_intl **list_b)
+{
+	int	*mov_a;
+	int	*mov_b;
+	int	bp;
+	int	len;
+
+	len = list_length(list_b);
+	while (len--)
+	{
+		mov_a = ft_mov_a(list_a, list_b, list_length(list_b));
+		mov_b = ft_mov_b(list_length(list_b));
+		bp = find_best_pos(find_best_mov(mov_a, mov_b, list_length(list_b)), list_length(list_b));
+
+		ft_printf("mov_a:\tmov_b:\n");
+		for (int k = 0; k < list_length(list_b); k++)
+			ft_printf("  %d\t  %d\n", mov_a[k], mov_b[k]);
+		ft_printf("best_pos: %d\n", bp);
+
+		free(mov_a);
+		free(mov_b);
+		break;
+	}
+	list_free(list_b);
 }

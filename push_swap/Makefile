@@ -1,5 +1,5 @@
 FILES = main.c sorting_algorithms.c lis_algorithm.c\
-	mov.c scmoovin.c\
+	mov.c\
 	utils.c utils2.c utils3.c utils4.c \
 	operations_p.c operations_s.c operations_r.c operations_r2.c
 	
