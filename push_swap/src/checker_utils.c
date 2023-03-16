@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:52:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 21:36:28 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:06:41 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	stackify_c(t_intl **list, int argc, char *argv[])
 	return (1);
 }
 
-void	list_free_c(t_intl **list)
+void	tintl_free_c(t_intl **list)
 {
 	t_intl	*tmp;
 

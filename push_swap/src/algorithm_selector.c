@@ -1,49 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   algorithm_selector.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 18:53:41 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/16 18:58:53 by anvannin         ###   ########.fr       */
+/*   Created: 2023/03/16 18:55:45 by anvannin          #+#    #+#             */
+/*   Updated: 2023/03/16 18:55:52 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	bin_mag(int n)
+void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b)
 {
-	int	m;
-
-	m = 1;
-	while (n > 1)
-	{
-		n /= 2;
-		m++;
-	}
-	return (m);
-}
-
-int	*order_arr(int *arr, int len)
-{
-	int	i;
-	int	j;
-	int	t;
-
-	i = -1;
-	while (++i < len - 1)
-	{
-		j = -1;
-		while (++j < len - i - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				t = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = t;
-			}
-		}
-	}
-	return (arr);
+	if ((*list_a)->content < (*list_a)->next->content && argc == 2)
+		return ;
+	if (argc == 2)
+		sa(list_a);
+	else if (argc == 3)
+		size_3_algorithm(list_a);
+	else if (argc >= 4 && argc <= 5)
+		size_5_algorithm(argc, list_a, list_b);
+	else if (argc >= 6)
+		size_any_algorithm(list_a, list_b);
 }

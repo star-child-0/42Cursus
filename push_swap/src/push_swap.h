@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/09 17:44:41 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:58:47 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,18 @@
 
 # include "../../libft/libft.h"
 
-typedef struct i_list
-{
-	int				content;
-	struct i_list	*next;
-}t_intl;
+// algorithm_selector.c
+void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
 
 // utils.c
-void	list_print(t_intl **list);
-t_intl	*ft_push(int content);
 int		stackify(t_intl **list, int argc, char *argv[]);
 int		check_repetition(int argc, char *argv[]);
 int		argv_check(int argc, char *argv[]);
+void	simplify_list(t_intl **list);
+void	simplify_list2(t_intl **list, int *orig);
 
 // utils2.c
-int		list_smallest_pos(t_intl **list);
-int		list_last(t_intl **lst);
-void	algorithm_selector(int argc, t_intl **list_a, t_intl **list_b);
-int		is_list_ordered(t_intl **list);
-int		node_index(t_intl **list, t_intl *node);
-
-// utils3.c
-int		list_biggest(t_intl **list);
-int		list_smallest(t_intl **list);
-int		list_length(t_intl **list);
-void	list_free(t_intl **list);
-void	simplify_list(t_intl **list);
-
-// utils4.c
-void	simplify_list2(t_intl **list, int *orig);
-int		has_list_neg(t_intl **list);
 int		bin_mag(int n);
-int		is_list_revordered(t_intl **list);
-int		number_in_array(int n, int *arr, int len);
 int		*order_arr(int *arr, int len);
 
 // LIS algorithm

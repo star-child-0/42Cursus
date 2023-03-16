@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:49:26 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 21:36:28 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:06:41 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	read_moves(&list_a, &list_b);
-	if (is_list_ordered_c(&list_a))
+	if (is_tintl_ordered_c(&list_a))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	list_free_c(&list_a);
+	tintl_free_c(&list_a);
 	return (0);
 }

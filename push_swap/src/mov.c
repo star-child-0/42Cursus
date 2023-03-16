@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:16:24 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/10 21:01:11 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:08:02 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	mov_a_fill(t_intl **list_a, int *mov_a, t_intl *tmp_b, int i)
 	while (tmp_a->next && ++m)
 	{
 		mov_a[i] = m;
-		if (tmp_b->content < list_smallest(list_a)
-			|| tmp_b->content > list_biggest(list_a))
+		if (tmp_b->content < tintl_smallest(list_a)
+			|| tmp_b->content > tintl_biggest(list_a))
 			mov_a[i] = 0;
 		if (tmp_b->content > tmp_a->content
 			&& tmp_b->content < tmp_a->next->content)
@@ -126,7 +126,7 @@ int	find_best_pos(int *best, int len)
 */
 
 // ft_printf("mov_a:\tmov_b:\tbest:\n");
-// for (int k = 0; k < list_length(list_b); k++)
+// for (int k = 0; k < tintl_length(list_b); k++)
 // 	ft_printf("  %d\t  %d\t  %d\n", mov_a[k], mov_b[k], best[k]);
 void	movv(t_intl **list_a, t_intl **list_b)
 {
@@ -138,7 +138,7 @@ void	movv(t_intl **list_a, t_intl **list_b)
 	int	small_i;
 	int	len;
 
-	len = list_length(list_b);
+	len = tintl_length(list_b);
 	while (len > 0)
 	{
 		mov_b = ft_mov_b(len);
@@ -146,7 +146,7 @@ void	movv(t_intl **list_a, t_intl **list_b)
 		best = find_best_mov(mov_a, mov_b, len);
 
 		// ft_printf("mov_a:\tmov_b:\tbest:\n");
-		// for (int k = 0; k < list_length(list_b); k++)
+		// for (int k = 0; k < tintl_length(list_b); k++)
 		// 	ft_printf("  %d\t  %d\t  %d\n", mov_a[k], mov_b[k], best[k]);
 
 		i = 0;
@@ -186,7 +186,7 @@ void	movv(t_intl **list_a, t_intl **list_b)
 			else if (y < 0)
 				rrb(list_b);
 			else if ((*list_a)->content > (*list_b)->content
-				&& (*list_b)->content > list_last(list_a))
+				&& (*list_b)->content > tintl_last(list_a))
 				break ;
 			else
 				rb(list_b);
@@ -204,14 +204,14 @@ void	movv(t_intl **list_a, t_intl **list_b)
 			ra(list_a);
 		pa(list_b, list_a);
 
-		if (!is_list_ordered(list_a))
+		if (!is_tintl_ordered(list_a))
 		{
-			int ls = list_smallest_pos(list_a);
-			if (ls > list_length(list_a) / 2)
-				while (ls-- && !is_list_ordered(list_a))
+			int ls = tintl_smallest_pos(list_a);
+			if (ls > tintl_length(list_a) / 2)
+				while (ls-- && !is_tintl_ordered(list_a))
 					rra(list_a);
 			else
-				while (ls-- && !is_list_ordered(list_a))
+				while (ls-- && !is_tintl_ordered(list_a))
 					ra(list_a);
 		}
 
@@ -232,15 +232,15 @@ void	mov(t_intl **list_a, t_intl **list_b)
 	int	bp;
 	int	len;
 
-	len = list_length(list_b);
+	len = tintl_length(list_b);
 	while (len--)
 	{
-		mov_a = ft_mov_a(list_a, list_b, list_length(list_b));
-		mov_b = ft_mov_b(list_length(list_b));
-		bp = find_best_pos(find_best_mov(mov_a, mov_b, list_length(list_b)), list_length(list_b));
+		mov_a = ft_mov_a(list_a, list_b, tintl_length(list_b));
+		mov_b = ft_mov_b(tintl_length(list_b));
+		bp = find_best_pos(find_best_mov(mov_a, mov_b, tintl_length(list_b)), tintl_length(list_b));
 
 		ft_printf("mov_a:\tmov_b:\n");
-		for (int k = 0; k < list_length(list_b); k++)
+		for (int k = 0; k < tintl_length(list_b); k++)
 			ft_printf("  %d\t  %d\n", mov_a[k], mov_b[k]);
 		ft_printf("best_pos: %d\n", bp);
 
@@ -248,5 +248,5 @@ void	mov(t_intl **list_a, t_intl **list_b)
 		free(mov_b);
 		break;
 	}
-	list_free(list_b);
+	tintl_free(list_b);
 }

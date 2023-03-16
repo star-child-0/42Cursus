@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:30:58 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 20:27:53 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:02:18 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	lis_algorithm(t_intl **list_a, t_intl **list_b)
 
 	i = -1;
 	tmp = (*list_a);
-	arr = (int *)malloc(sizeof(int) * list_length(list_a));
-	len = (int *)malloc(sizeof(int) * list_length(list_a));
-	while (++i < list_length(list_a))
+	arr = (int *)malloc(sizeof(int) * tintl_length(list_a));
+	len = (int *)malloc(sizeof(int) * tintl_length(list_a));
+	while (++i < tintl_length(list_a))
 	{
 		len[i] = 1;
 		arr[i] = tmp->content;
 		tmp = tmp->next;
 	}
 	i = 0;
-	while (++i < list_length(list_a))
+	while (++i < tintl_length(list_a))
 	{
 		j = -1;
 		while (++j < i)
@@ -72,16 +72,16 @@ void	get_lis_values(int *len, int *arr, t_intl **list_a, t_intl **list_b)
 	int	rem;
 	int	*lis;
 
-	i = list_length(list_a);
-	max = lis_size(len, list_length(list_a));
-	rem = list_length(list_a) - max;
+	i = tintl_length(list_a);
+	max = lis_size(len, tintl_length(list_a));
+	rem = tintl_length(list_a) - max;
 	lis = (int *)malloc(sizeof(int) * max);
 	while (--i >= 0)
 		if (len[i] == max)
 			lis[--max] = arr[i];
 	while (max < rem)
 	{
-		if (is_list_ordered(list_a))
+		if (is_tintl_ordered(list_a))
 			break ;
 		if (number_in_array((*list_a)->content, lis, rem))
 			ra(list_a);
@@ -103,13 +103,13 @@ void	reorder_lis(t_intl **list_a, int *arr, int *len, int *lis)
 	free(lis);
 	while (tmp->next)
 	{
-		if (tmp->content == list_smallest(list_a))
+		if (tmp->content == tintl_smallest(list_a))
 			break ;
 		tmp = tmp->next;
 		i++;
 	}
-	if (i > list_length(list_a) / 2)
-		while (i++ < list_length(list_a))
+	if (i > tintl_length(list_a) / 2)
+		while (i++ < tintl_length(list_a))
 			rra(list_a);
 	else
 		while (i-- > 0)

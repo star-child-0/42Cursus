@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:43:33 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/24 19:39:42 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:59:47 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	algorithm_selector(argc - 1, &list_a, &list_b);
-	list_free(&list_a);
+	tintl_free(&list_a);
 	return (0);
 }

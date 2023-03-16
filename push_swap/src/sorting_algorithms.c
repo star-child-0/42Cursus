@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/10 19:02:01 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:01:14 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,22 @@ void	size_3_algorithm(t_intl **list)
 
 void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 {
-	while (list_length(list_a) > 3)
+	while (tintl_length(list_a) > 3)
 	{
-		if ((*list_a)->content == list_smallest(list_a)
-			|| (*list_a)->content == list_biggest(list_a))
+		if ((*list_a)->content == tintl_smallest(list_a)
+			|| (*list_a)->content == tintl_biggest(list_a))
 			pb(list_a, list_b);
 		else
 			ra(list_a);
 	}	
-	if (!is_list_ordered(list_a))
+	if (!is_tintl_ordered(list_a))
 		size_3_algorithm(list_a);
 	if ((*list_b)->next && (*list_b)->content < (*list_b)->next->content)
 		sb(list_b);
 	pa(list_b, list_a);
 	if (argc == 4)
 	{
-		if (list_biggest(list_a) == (*list_a)->content)
+		if (tintl_biggest(list_a) == (*list_a)->content)
 			ra(list_a);
 		return ;
 	}
@@ -66,9 +66,9 @@ void	size_5_algorithm(int argc, t_intl **list_a, t_intl **list_b)
 
 void	size_5_algorithm2(t_intl **list_a, t_intl **list_b)
 {
-	if ((*list_a)->content == list_biggest(list_a))
+	if ((*list_a)->content == tintl_biggest(list_a))
 	{
-		if (list_smallest(list_a) > (*list_b)->content)
+		if (tintl_smallest(list_a) > (*list_b)->content)
 		{
 			ra(list_a);
 			pa(list_b, list_a);
@@ -80,7 +80,7 @@ void	size_5_algorithm2(t_intl **list_a, t_intl **list_b)
 			ra(list_a);
 		}
 	}
-	else if ((*list_b)->content < list_smallest(list_a))
+	else if ((*list_b)->content < tintl_smallest(list_a))
 		pa(list_b, list_a);
 }
 
@@ -92,10 +92,10 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 
 	simplify_list(list_a);
 	j = 0;
-	while (j < bin_mag(list_biggest(list_a)))
+	while (j < bin_mag(tintl_biggest(list_a)))
 	{
 		lb = 1;
-		i = list_length(list_a) + 1;
+		i = tintl_length(list_a) + 1;
 		while (--i)
 		{
 			if (((*list_a)->content >> j & 1) % 2 == 0)
