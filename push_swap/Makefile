@@ -27,26 +27,36 @@ NAME = push_swap
 
 BONUS_NAME = checker
 
-all: $(NAME)
+all: lib $(NAME)
 
 bonus: all $(BONUS_NAME)
 
+lib:
+	make -sC ../libft
+
 $(NAME): $(OBJECTS)
-	make -C ../libft
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	@echo "Compiling push_swap"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	@echo "Done"
 
 $(BONUS_NAME): $(BONUS_OBJECTS)
-	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS) $(LIBFT)
+	@echo "Compiling push_swap bonus"
+	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS) $(LIBFT)
+	@echo "Done"
 
 clean:
-	make clean -C ../libft
-	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
+	@echo "Cleaning"
+	@make clean -sC ../libft
+	@$(RM) $(OBJECTS) $(BONUS_OBJECTS)
+	@echo "Done"
 
 fclean: clean
-	make fclean -C ../libft
-	$(RM) $(NAME) $(BONUS_NAME) $(OBJECTS) $(BONUS_OBJECTS)
+	@echo "Removing"
+	@make fclean -sC ../libft
+	@$(RM) $(NAME) $(BONUS_NAME) $(OBJECTS) $(BONUS_OBJECTS)
+	@echo "Done"
 
 re: fclean bonus
 
-.PHONY:	all clean fclean re
-.SILENT: all clean fclean re
+.PHONY:	all clean fclean re bonus
+.SILENT:
