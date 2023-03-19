@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 20:47:34 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/16 18:58:47 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:16:45 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,17 @@ int		*ft_mov_a(t_intl **list_a, t_intl **list_b, int len);
 void	mov(t_intl **list_a, t_intl **list_b);
 void	mov_a_fill(t_intl **list_a, int *mov_a, t_intl *tmp_b, int i);
 int		*find_best_mov(int *mov_a, int *mov_b, int len);
+int		find_best_pos(int *best, int len);
+
+// exec_mov.c
+void	mov(t_intl **list_a, t_intl **list_b);
+void	mov_plusplus(t_intl **list_a, t_intl **list_b, int a, int b);
+void	mov_minusminus(t_intl **list_a, t_intl **list_b, int a, int b);
+void	mov_plusminus(t_intl **list_a, t_intl **list_b, int a, int b);
+void	mov_minusplus(t_intl **list_a, t_intl **list_b, int a, int b);
+
+// mov_reorder.c
+void	mov_reorder(t_intl **list);
 
 // sorting_algorithms.c
 void	size_3_algorithm(t_intl **list);

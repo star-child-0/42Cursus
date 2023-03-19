@@ -1,5 +1,5 @@
 FILES = main.c sorting_algorithms.c lis_algorithm.c algorithm_selector.c \
-	utils.c utils2.c mov.c \
+	utils.c utils2.c mov.c exec_mov.c mov_reorder.c\
 	operations_p.c operations_s.c operations_r.c operations_r2.c
 
 BONUS_FILES = checker.c checker_utils.c checker_utils2.c \
