@@ -58,5 +58,9 @@ fclean: clean
 
 re: fclean bonus
 
+norm:
+	norminette ./libft/
+	norminette $(SRC)
+
 .PHONY:	all clean fclean re bonus
 .SILENT:

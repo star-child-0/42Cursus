@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:01:50 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/16 19:01:14 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:28:41 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,31 @@ void	radix_sort(t_intl **list_a, t_intl **list_b)
 	}
 }
 
+/*
+With 100 numbers, we can get
+
+5 points if the size of the list of instructions is less than 700
+
+4 points if the size of the list of instructions is less than 900
+
+3 points if the size of the list of instructions is less than 1100
+
+2 points if the size of the list of instructions is less than 1300
+
+1 points if the size of the list of instructions is less than 1500
+
+With 500 numbers, we can get
+
+5 points if the size of the list of instructions is less than 5500
+
+4 points if the size of the list of instructions is less than 7000
+
+3 points if the size of the list of instructions is less than 8500
+
+2 points if the size of the list of instructions is less than 10000
+
+1 points if the size of the list of instructions is less than 11500
+*/
 void	size_any_algorithm(t_intl **list_a, t_intl **list_b)
 {
 	lis_algorithm(list_a, list_b);
