@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:14:43 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/21 20:54:59 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/21 21:38:30 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		printf_handler(const char *str, int i, va_list args, t_flags *flags);
 // flags.c
 t_flags	*init_flags(t_flags *flags);
 
-// put_d_i.c
+// ft_put_d_i.c
 int		put_d_i(const char *str, int i, va_list args, t_flags *flags);
 
 #endif

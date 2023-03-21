@@ -1,13 +1,7 @@
-FILES = ft_printf.c flags.c\
-	ft_putchar.c
+FILES = ft_printf.c flags.c ft_put_d_i.c\
+	ft_putchar.c ft_putstr.c ft_putnbr.c ft_nbrlen.c\
 
-LIBFT = ../libft/libft.a
-
-SRC_DIR = ./src/
-
-SRC = $(addprefix $(SRC_DIR), $(FILES))
-
-OBJECTS = $(SRC:.c=.o)
+OBJECTS = $(FILES:.c=.o)
 
 CC = gcc
 
@@ -21,26 +15,21 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@echo "Compiling ft_printf"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	@$(CC) $(CFLAGS) -c $(FILES)
+	@ar -rs libftprintf.a $(OBJECTS)
 	@echo "Done"
 
 clean:
 	@echo "Cleaning"
-	@make clean -sC ../libft
-	@$(RM) $(OBJECTS) $(BONUS_OBJECTS)
+	@$(RM) $(OBJECTS)
 	@echo "Done"
 
 fclean: clean
 	@echo "Removing"
-	@make fclean -sC ../libft
-	@$(RM) $(NAME) $(BONUS_NAME) $(OBJECTS) $(BONUS_OBJECTS)
+	@$(RM) $(NAME) $(OBJECTS)
 	@echo "Done"
 
-re: fclean bonus
-
-norm:
-	norminette ./libft/
-	norminette $(SRC)
+re: fclean all
 
 .PHONY:	all clean fclean re
 .SILENT:
