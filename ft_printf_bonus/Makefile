@@ -1,4 +1,5 @@
-FILES =
+FILES = ft_printf.c flags.c\
+	ft_putchar.c
 
 LIBFT = ../libft/libft.a
 
@@ -16,12 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-
-all: lib $(NAME)
-
-
-lib:
-	make -sC ../libft
+all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@echo "Compiling ft_printf"
