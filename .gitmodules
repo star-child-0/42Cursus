@@ -5,3 +5,10 @@
 [submodule "fract-ol"]
 	path = fract-ol
 	url = https://github.com/Mattei-Giovanni/fract-ol
+
+[submodule "minishell"]
+	path = minishell
+	url = https://github.com/star-child-0/minishell.git
+[submodule "minitalk/libft"]
+	path = minitalk/libft
+	url = https://github.com/star-child-0/libft.git
