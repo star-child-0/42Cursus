@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:14:43 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/21 21:38:30 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:41:15 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@
 
 typedef struct s_flags
 {
-	char	minus;
-	char	zero;
-	char	point;
-	char	hash;
-	char	space;
-	char	plus;
 	int		ret;
 }	t_flags;
 
@@ -44,7 +38,8 @@ int		printf_handler(const char *str, int i, va_list args, t_flags *flags);
 // flags.c
 t_flags	*init_flags(t_flags *flags);
 
-// ft_put_d_i.c
+// ft_puts.c
 int		put_d_i(const char *str, int i, va_list args, t_flags *flags);
+int		put_c(const char *str, int i, va_list args, t_flags *flags);
 
 #endif

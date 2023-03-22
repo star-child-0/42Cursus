@@ -1,4 +1,4 @@
-FILES = ft_printf.c flags.c ft_put_d_i.c\
+FILES = ft_printf.c flags.c ft_puts.c\
 	ft_putchar.c ft_putstr.c ft_putnbr.c ft_nbrlen.c\
 
 OBJECTS = $(FILES:.c=.o)

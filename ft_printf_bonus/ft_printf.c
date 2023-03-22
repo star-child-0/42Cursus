@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:34:01 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/21 21:41:54 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:45:26 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 
 int	printf_handler(const char *str, int i, va_list args, t_flags *flags)
 {
-	if ((str[i] == '+' || str[i] == ' ' || str[i] == '.') && (str[i + 1] == 'd'
-			|| str[i + 1] == 'i'))
+	if ((str[i] == '+' || str[i] == ' ' || str[i] == '.' || str[i] == '-')
+		&& (str[i + 1] == 'd' || str[i + 1] == 'i'))
 		i = put_d_i(str, i, args, flags);
 	else if (str[i] == 'd' || str[i] == 'i')
 		flags->ret += ft_putnbr(va_arg(args, int));
+	else if (str[i] == '-' && str[i + 1] == 'c')
+		i = put_c(str, i, args, flags);
+	else if (str[i] == 'c')
+		flags->ret += ft_putchar(va_arg(args, int));
 	else if (str[i] == '%')
 		flags->ret += ft_putchar('%');
+	else
+		ft_putnbr(str[i]);
 	return (i);
 }
 
