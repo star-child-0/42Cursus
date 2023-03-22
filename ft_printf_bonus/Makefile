@@ -13,6 +13,8 @@ NAME = libftprintf.a
 
 all: $(NAME)
 
+bonus: all
+
 $(NAME): $(OBJECTS)
 	@echo "Compiling ft_printf"
 	@$(CC) $(CFLAGS) -c $(FILES)
@@ -29,7 +31,8 @@ fclean: clean
 	@$(RM) $(NAME) $(OBJECTS)
 	@echo "Done"
 
-re: fclean all
+re: fclean bonus
 
-.PHONY:	all clean fclean re
+
+.PHONY:	all clean fclean re bonus
 .SILENT:
