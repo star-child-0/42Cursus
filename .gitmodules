@@ -1,8 +1,11 @@
-[submodule "fract-ol"]
-	path = fract-ol
-	url = https://github.com/Mattei-Giovanni/fract-ol
-
 [submodule "libft"]
 	path = libft
 	url = https://github.com/star-child-0/libft
+
+[submodule "fract-ol"]
+	path = fract-ol
+	url = https://github.com/Mattei-Giovanni/fract-ol
 	
+[submodule "minishell"]
+	path = minishell
+	url = https://github.com/star-child-0/minishell
