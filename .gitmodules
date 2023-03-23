@@ -9,6 +9,7 @@
 [submodule "minishell"]
 	path = minishell
 	url = https://github.com/star-child-0/minishell.git
-[submodule "minitalk/libft"]
-	path = minitalk/libft
-	url = https://github.com/star-child-0/libft.git
+
+[submodule "42Philosophers"]
+	path = 42Philosophers
+	url = https://github.com/SickMarco/42Philosophers.git
