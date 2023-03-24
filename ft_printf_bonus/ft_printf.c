@@ -6,27 +6,46 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:34:01 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/22 19:45:26 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:03:45 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+t_flags	*init_flags(t_flags *flags)
+{
+	flags->ret = 0;
+	return (flags);
+}
+
 int	printf_handler(const char *str, int i, va_list args, t_flags *flags)
 {
-	if ((str[i] == '+' || str[i] == ' ' || str[i] == '.' || str[i] == '-')
-		&& (str[i + 1] == 'd' || str[i + 1] == 'i'))
-		i = put_d_i(str, i, args, flags);
+	if (str[i] == 'c')
+		flags->ret += ft_putchar(va_arg(args, int));
+	else if (str[i] == 's')
+		flags->ret += ft_putstr(va_arg(args, char *));
 	else if (str[i] == 'd' || str[i] == 'i')
 		flags->ret += ft_putnbr(va_arg(args, int));
-	else if (str[i] == '-' && str[i + 1] == 'c')
-		i = put_c(str, i, args, flags);
-	else if (str[i] == 'c')
-		flags->ret += ft_putchar(va_arg(args, int));
+	else if (str[i] == 'u')
+		flags->ret += ft_putunsign_nbr(va_arg(args, unsigned int));
+	else if (str[i] == 'p')
+		flags->ret += ft_put_pointer(va_arg(args, uintptr_t));
+	else if (str[i] == 'X' || str[i] == 'x')
+		flags->ret += ft_putnbr_hex(va_arg(args, unsigned int), str[i]);
 	else if (str[i] == '%')
 		flags->ret += ft_putchar('%');
+	return (i);
+}
+
+int	flags_handler(const char *str, int i, va_list args, t_flags *flags)
+{
+	if (str[i] == '+' && (str[i + 1] == 'd' || str[i + 1] == 'i'))
+		i = plus_handler(i, args, flags);
+	else if (str[i] == ' ' && (str[i + 1] == 'd' || str[i + 1] == 'i'
+			|| str[i + 1] == 's'))
+		i = space_handler(str, i, args, flags);
 	else
-		ft_putnbr(str[i]);
+		i = printf_handler(str, i, args, flags);
 	return (i);
 }
 
@@ -46,7 +65,7 @@ int	ft_printf(const char *str, ...)
 	while (str[++i] != '\0')
 	{
 		if (str[i] == '%')
-			i = printf_handler(str, ++i, args, flags);
+			i = flags_handler(str, ++i, args, flags);
 		else
 			flags->ret += ft_putchar(str[i]);
 	}

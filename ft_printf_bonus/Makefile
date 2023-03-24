@@ -1,5 +1,7 @@
-FILES = ft_printf.c flags.c ft_puts.c\
-	ft_putchar.c ft_putstr.c ft_putnbr.c ft_nbrlen.c\
+FILES = ft_printf.c\
+	plus_handler.c space_handler.c\
+	ft_putchar.c ft_putstr.c ft_putnbr.c ft_nbrlen.c ft_put_pointer.c \
+	ft_putnbr_hex.c ft_putunsign_nbr.c
 
 OBJECTS = $(FILES:.c=.o)
 
