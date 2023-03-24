@@ -10,6 +10,6 @@
 	path = minishell
 	url = https://github.com/star-child-0/minishell.git
 
-[submodule "42Philosophers"]
-	path = 42Philosophers
+[submodule "philosophers"]
+	path = philosophers
 	url = https://github.com/SickMarco/42Philosophers.git
