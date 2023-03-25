@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:14:43 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/24 20:17:50 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:53:44 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 
 typedef struct s_flags
 {
+	int		minus;
+	int		zero;
+	int		dot;
+	int		width;
 	int		ret;
 }	t_flags;
 
@@ -29,6 +33,7 @@ int		ft_putchar(char c);
 int		ft_atoi(const char *str);
 int		ft_putstr(const char *str);
 int		ft_putnbr(int n);
+int		ft_putnbr_base(unsigned int nbr, char *base);
 int		ft_nbrlen(long int a);
 int		ft_put_pointer(uintptr_t ptr);
 int		ft_putnbr_hex(unsigned long int nb, char x);
@@ -44,8 +49,8 @@ int		printf_handler(const char *str, int i, va_list args, t_flags *flags);
 int		minus_handler(const char *str, int i, va_list args, t_flags *flags);
 int		zero_handler(const char *str, int i, va_list args, t_flags *flags);
 int		dot_handler(const char *str, int i, va_list args, t_flags *flags);
-int		hash_handler(const char *str, int i, va_list args, t_flags *flags);
 
+int		hash_handler(const char *str, int i, va_list args, t_flags *flags);
 int		space_handler(const char *str, int i, va_list args, t_flags *flags);
 int		plus_handler(int i, va_list args, t_flags *flags);
 

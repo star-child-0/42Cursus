@@ -3,26 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:07:47 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/31 15:09:30 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:18:48 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_putnbr_ptr(uintptr_t ptr, char *base)
+{
+	int		i;
+	int		conv[100];
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	if (!ptr)
+		return (0);
+	while (ptr >= 16)
+	{
+		conv[i] = base[ptr % 16];
+		ptr = ptr / 16;
+		i++;
+	}
+	conv[i] = base[ptr];
+	while (i >= 0)
+	{
+		write(1, &conv[i], 1);
+		i--;
+		ret++;
+	}
+	return (ret);
+}
+
 int	ft_put_pointer(uintptr_t ptr)
 {
-	long int	hex;
-
-	hex = (long int)ptr;
-	if (ptr == 0)
-	{
+	if (!ptr)
 		return (ft_putstr("(nil)"));
-	}
 	ft_putstr("0x");
-	if (hex <= -1)
-		return (ft_putchar('f') + ft_putnbr_hex(hex, 'x') + 2);
-	return (ft_putnbr_hex(ptr, 'x') + 2);
+	return (ft_putnbr_ptr(ptr, "0123456789abcdef") + 2);
 }

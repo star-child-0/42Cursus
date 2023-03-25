@@ -3,45 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:06:28 by anvannin          #+#    #+#             */
-/*   Updated: 2022/10/31 15:07:21 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:21:22 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_assign(long unsigned int a, char c)
+int	ft_putnbr_base(unsigned int nbr, char *base)
 {
-	if (a % 16 < 10)
-		return (a % 16 + 48);
-	else if (c == 'x')
-		return (a % 16 + 87);
-	else
-		return (a % 16 + 55);
+	int		i;
+	int		conv[100];
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	if (!nbr)
+		return (0);
+	while (nbr >= 16)
+	{
+		conv[i] = base[nbr % 16];
+		nbr = nbr / 16;
+		i++;
+	}
+	conv[i] = base[nbr];
+	while (i >= 0)
+	{
+		write(1, &conv[i], 1);
+		i--;
+		ret++;
+	}
+	return (ret);
 }
 
 int	ft_putnbr_hex(unsigned long int nb, char x)
 {
-	int		i;
-	int		r;
-	char	*hex;
+	int	len;
 
-	i = 0;
+	len = 0;
 	if (nb == 0)
-		return (ft_putchar('0'));
-	nb *= 16;
-	hex = malloc(1 * 21);
-	while ((nb / 16) != 0)
 	{
-		nb /= 16;
-		hex[i++] = ft_assign(nb, x);
+		write (1, "0", 1);
+		return (1);
 	}
-	hex[i] = ft_assign(nb, x);
-	r = i;
-	while (--i >= 0)
-		ft_putchar(hex[i]);
-	free(hex);
-	return (r);
+	if (x == 'x')
+		len += ft_putnbr_base(nb, "0123456789abcdef");
+	else if (x == 'X')
+		len += ft_putnbr_base(nb, "0123456789ABCDEF");
+	return (len);
 }

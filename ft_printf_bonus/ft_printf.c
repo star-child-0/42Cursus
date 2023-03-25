@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:34:01 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/24 20:03:45 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:32:51 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 t_flags	*init_flags(t_flags *flags)
 {
+	flags->minus = 0;
+	flags->zero = 0;
+	flags->dot = 0;
+	flags->width = 0;
 	flags->ret = 0;
 	return (flags);
 }
@@ -42,8 +46,11 @@ int	flags_handler(const char *str, int i, va_list args, t_flags *flags)
 	if (str[i] == '+' && (str[i + 1] == 'd' || str[i + 1] == 'i'))
 		i = plus_handler(i, args, flags);
 	else if (str[i] == ' ' && (str[i + 1] == 'd' || str[i + 1] == 'i'
-			|| str[i + 1] == 's'))
+			|| str [i + 1] == 's' || str[i + 1] == ' '
+			|| (str[i + 1] >= '0' && str[i + 1] <= '9')))
 		i = space_handler(str, i, args, flags);
+	else if (str[i] == '#' && (str[i + 1] == 'x' || str[i + 1] == 'X'))
+		i = hash_handler(str, i, args, flags);
 	else
 		i = printf_handler(str, i, args, flags);
 	return (i);
