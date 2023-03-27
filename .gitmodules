@@ -33,6 +33,7 @@
 [submodule "philosophers"]
 	path = philosophers
 	url = https://github.com/SickMarco/42Philosophers.git
+
 [submodule "minishell"]
 	path = minishell
 	url = https://github.com/kichkiro/minishell.git
