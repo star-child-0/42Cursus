@@ -2,7 +2,7 @@
 
 My 42 cursus directory, each project with their subject
 
-This repo is just the collection of references to the projects, each project is a repository in itself
+This repo is just the collection of references to the projects, plus the library of functions I update and use in my projects, each project is a repository in itself
 <!-- as well as a reference to a tester -->
 
 | *__Project__* | *__Overview__* | *__Attempts__* | *__Grade__* |
