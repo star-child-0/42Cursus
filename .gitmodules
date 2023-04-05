@@ -1,39 +1,39 @@
 [submodule "libft"]
 	path = libft
-	url = https://github.com/star-child-0/libft.git
+	url = git@github.com:star-child-0/libft.git
 
 [submodule "ft_printf"]
 	path = ft_printf
-	url = https://github.com/star-child-0/ft_printf.git
+	url = git@github.com:star-child-0/ft_printf.git
 
 [submodule "get_next_line"]
 	path = get_next_line
-	url = https://github.com/star-child-0/get_next_line.git
+	url = git@github.com:star-child-0/get_next_line.git
 
 [submodule "Mylibft"]
 	path = Mylibft
-	url = https://github.com/star-child-0/Mylibft
+	url = git@github.com:star-child-0/Mylibft.git
 
 [submodule "Born2beroot"]
 	path = Born2beroot
-	url = https://github.com/star-child-0/Born2beroot.git
+	url = git@github.com:star-child-0/Born2beroot.git
 
 [submodule "minitalk"]
 	path = minitalk
-	url = https://github.com/star-child-0/minitalk.git
-
-[submodule "fract-ol"]
-	path = fract-ol
-	url = https://github.com/Mattei-Giovanni/fract-ol
+	url = git@github.com:star-child-0/minitalk.git
 
 [submodule "push_swap"]
 	path = push_swap
-	url = https://github.com/star-child-0/push_swap.git
+	url = git@github.com:star-child-0/push_swap.git
 
 [submodule "minishell"]
 	path = minishell
-	url = https://github.com/kichkiro/minishell.git
+	url = git@github.com:kichkiro/minishell.git
 
 [submodule "philosophers"]
 	path = philosophers
-	url = https://github.com/star-child-0/philosophers.git
+	url = git@github.com:star-child-0/philosophers.git
+
+[submodule "fractol"]
+	path = fractol
+	url = git@github.com:Mattei-Giovanni/Fractol-in-Group.git
