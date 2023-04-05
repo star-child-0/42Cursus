@@ -30,7 +30,7 @@ done
 
 add_commit_push
 
-echo "                                                                                                    "
+echo "                                                .                                                   "
 echo "                                                                                             x      "
 echo "                 .                                                                                  "
 echo "                                                                      .                             "
@@ -41,7 +41,7 @@ echo "                      +                             BYYG                  
 echo "                                                   BYY5                                  P5B        "
 echo "                                                  55YG                          .        P5G        "
 echo "                                                GPGPP5PPPPPBBPPGGGPGP5PB                 PP &       "
-echo "                   +                            BP55GPP5555555YJYPPPPGBBB                 PPPB      "
+echo "                   +               .            BP55GPP5555555YJYPPPPGBBB                 PPPB      "
 echo "                                               BBBBBGP5YYYYPBGPGBGPBBBBBBGBBBBB        BG55YY5B     "
 echo "                                        BBBGGGBBGP55555YYY55GGPPPPP555555555555555PP555YYJ?7!J5G    "
 echo "                                      BGGBGGGBBGGGGBBBBG5YYYYYYY5555PP555555PGBGGP5YJ?7!~~~~~!7JG   "
@@ -58,7 +58,7 @@ echo "   GPPGPPPPPPPPPPPPPPPPPPPGGPPP5PGBGPGBBGGGGBGGBB         B               
 echo "       BBBBGGGGPPPPPPBGPGPPPPGBBGBGGGBBBBBBB                                                        "
 echo "              BBBBBBBBBBBBBBBBBBBBBBBBB                                                             "
 echo "                                                                                    x               "
-echo "                                                                                                    "
+echo "     +                                                                                              "
 echo "                                                                 .                                  "
 echo "                                                             +                                      "
 echo "                                 x                                                                  "
