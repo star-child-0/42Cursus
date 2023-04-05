@@ -4,7 +4,7 @@
 submodules=$(git submodule | awk '{print $2}')
 
 #specify the path of the submodules you wish to not push
-avoid_submodules=("ft_printf" "push_swap")
+avoid_submodules=("ft_printf" "push_swap" "minishell" "philosophers")
 
 #if alias for signout doesen't exist, create it
 if alias 'byebye' >/dev/null 2>&1; then 
