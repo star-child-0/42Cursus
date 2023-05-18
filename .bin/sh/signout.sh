@@ -7,17 +7,21 @@ submodules=$(git submodule | awk '{print $2}')
 avoid_submodules=("minishell")
 
 #if alias for signout doesen't exist, create it
-if alias 'byebye' >/dev/null 2>&1; then 
+if alias 'byebye' >/dev/null 2>&1; then
 	alias byebye="pipenv run bye";
 fi
 
 clear
 echo "Signing out..."
 
+function current_branch(){
+	git rev-parse --abbrev-ref HEAD
+}
+
 function add_commit_push(){
 	git add --all > /dev/null 2>&1
 	git commit -m "See you space cowboy." > /dev/null 2>&1
-	git push origin master > /dev/null 2>&1
+	git push origin $(current_branch) > /dev/null 2>&1
 }
 
 for submodule in $submodules; do
