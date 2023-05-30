@@ -37,3 +37,7 @@
 [submodule "fractol"]
 	path = fractol
 	url = git@github.com:Mattei-Giovanni/Fractol-in-Group.git
+
+[submodule "miniRT"]
+	path = miniRT
+	url = git@github.com:kichkiro/miniRT.git
