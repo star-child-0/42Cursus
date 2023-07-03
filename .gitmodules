@@ -41,3 +41,11 @@
 [submodule "miniRT"]
 	path = miniRT
 	url = git@github.com:kichkiro/miniRT.git
+
+[submodule "cpp"]
+	path = cpp
+	url = git@github.com:star-child-0/cpp.git
+
+[submodule "netpractice"]
+	path = netpractice
+	url = git@github.com:star-child-0/netpractice.git
